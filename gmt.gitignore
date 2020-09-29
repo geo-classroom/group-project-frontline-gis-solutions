@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 #ignore shapefiles
 *.shp
 *.cpg
 *.prj
 *.shx
 *.dbf
+=======
+# ignore shapefiles
+*.shp
+*.cpg
+*.prj
+*.shx
+*.dbf
+>>>>>>> master
