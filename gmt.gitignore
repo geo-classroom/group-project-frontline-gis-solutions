@@ -1,4 +1,4 @@
-#ignore shapefiles
+# ignore shapefiles
 *.shp
 *.cpg
 *.prj
