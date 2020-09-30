@@ -47,9 +47,8 @@
         }
 
         var owsrootUrl = 'http://geodev.co.za:8080/geoserver/FrontlineGIS/ows';
-
         //Wards Layer
-        var defaultParameters = {
+         var defaultParameters = {
             service : 'WFS',
             version : '1.0.0',
             request : 'GetFeature',
@@ -118,9 +117,8 @@
                 },
                 onEachFeature: function (feature, layer) {
                     popupOptions = {maxWidth: 200};
-                    layer.bindPopup("Name: " + feature.properties.Name
-                    + "<br>" + "Amenity: " + feature.properties.amenity
-                        ,popupOptions);
+                    layer.bindPopup("<b>" + feature.properties.name
+                    + "</b>",popupOptions);
                 }
             }).addTo(map);
             LC.addOverlay(poi_polygonWFS, "Points of Interest");
@@ -130,6 +128,13 @@
         //Roads Layer
         var roadsWMS = L.tileLayer.wms('http://geodev.co.za:8080/geoserver/FrontlineGIS/wms', {
          layers: 'FrontlineGIS:roads',
+         format: 'image/png',
+         transparent: true,
+       }).addTo(map);
+
+        //Catchment Layer
+        var catchmentWMS = L.tileLayer.wms('http://geodev.co.za:8080/geoserver/FrontlineGIS/wms', {
+         layers: 'FrontlineGIS:700mBuffer',
          format: 'image/png',
          transparent: true,
        }).addTo(map);
@@ -145,12 +150,14 @@
             "Wards": wardsWFS,
             "Health sites": healthsitesLayer,
             "Points of Interest": poi_polygonWFS,
-            "Roads": roadsWMS
+            "Roads": roadsWMS,
+            "Catchment Area": catchmentWMS
         };
 
         var LC = L.control.layers(baseMaps,null,{collapsed:false});
         LC.addTo(map);
         LC.addOverlay(roadsWMS, "Roads");
+        LC.addOverlay(catchmentWMS, "Catchment Area");
 
         //Scalebar
         L.control.scale().addTo(map);
@@ -166,7 +173,7 @@
         var hs1 = L.marker([-25.70892,28.35752], {icon: healthsiteIcon}).bindPopup("<b>AME Pharmacy</b>").addTo(healthsitesLayer);
         var hs2 = L.marker([-25.72178,28.38994], {icon: healthsiteIcon}).bindPopup("<b>Maruke Pharmacy Mamelodi Gardens</b>").addTo(healthsitesLayer);
         var hs3 = L.marker([-25.70421,28.41439], {icon: healthsiteIcon}).bindPopup("<b>Hospital</b>").addTo(healthsitesLayer);
-        var hs4 = L.marker([-25.70421,28.38318], {icon: healthsiteIcon}).bindPopup("<b>Tshepong Pharmacy</b>").addTo(healthsitesLayer);
+        var hs4 = L.marker([-25.70897,28.38318], {icon: healthsiteIcon}).bindPopup("<b>Tshepong Pharmacy</b>").addTo(healthsitesLayer);
         var hs5 = L.marker([-25.72021,28.36911], {icon: healthsiteIcon}).bindPopup("<b>Mamelodi Hospital</b>").addTo(healthsitesLayer);
         var hs6 = L.marker([-25.72199,28.38665], {icon: healthsiteIcon}).bindPopup("<b>Phahameng Clinic</b>").addTo(healthsitesLayer);
         var hs7 = L.marker([-25.71324,28.37464], {icon: healthsiteIcon}).bindPopup("<b>Mamelodi Hospital Pharmacy</b>").addTo(healthsitesLayer);
@@ -182,9 +189,6 @@
 
         healthsitesLayer.addTo(map);
         LC.addOverlay(healthsitesLayer, "Healthsites");
-
-        //var healthsitesLayer = L.Layergroup([hs1]);
-        //var healthsitesLayer = L.layergroup([one]).addTo(map);
     </script>
 </body>
 </html>
