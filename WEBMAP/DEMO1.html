@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Frontline GIS Soloutions</title>
+    <link rel="icon" href="Globe.png">
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body style="background-image: url('321.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%;">
+    
+    <table style="width:100%">
+        <tr>
+            <td style="width:300px"><a href="https://frontlinegissol.wixsite.com/home"><img src="FrontlineGIS_Logo.png" width="auto" height="100" href="https://www.qries.com/"></a></td>
+            <td style="background-color:#195E83; width:100%;">
+                <h1 style="color:#FBBF4D;"><u>Mapping Mamelodi Healthsites to Optimize Covid-19 Vaccine Distribution</u></h1>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <div id="map" style="width: 100%; height: 600px"></div>
+
+    <script>
+      //Initialize Map  
+      var map = L.map('map').setView([-25.709286, 28.390506], 13.4);
+      //Define Basemaps
+      var mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+      var OSM = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution: '&copy; ' + '<a href="http://openstreetmap.org">OpenStreetMap</a>' + ' Contributors',maxZoom: 18,}).addTo(map);
+      var GOOGLESAT = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{attribution: '&copy; ' + '<a href="https://www.google.com/earth/">Google Earth</a>' + ' Contributors',maxZoom: 18,}).addTo(map);
+      var CUSTOM = L.tileLayer('https://api.mapbox.com/styles/v1/nicholasdk/ckfoi3egs04r619nuei0ozot1/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibmljaG9sYXNkayIsImEiOiJjazB1dmRsZ24wbTAzM2pxcHo4N3d1aml1In0.v4FF5wiPpmyg5rrnq23kIg',{attribution: '&copy; ' + mapLink + ' Contributors',maxZoom: 18,}).addTo(map);
+      
+        function getColor(d) {
+        return d > 17000 ? '#195e83' :
+                d > 14000  ? '#3a7595' :
+                d > 8000  ? '#5b8ca7' :
+                d > 6000  ? '#7ca3b8' :
+                d > 3000   ? '#9dbaca' :
+                d > 2000   ? '#bed1dc' :
+                d > 0   ? '#dfe8ee' :
+                            '#ffffff';
+        }
+
+        var owsrootUrl = 'http://geodev.co.za:8080/geoserver/FrontlineGIS/ows';
+
+        //Wards Layer
+        var defaultParameters = {
+            service : 'WFS',
+            version : '1.0.0',
+            request : 'GetFeature',
+            typeName : 'FrontlineGIS:census_wards',
+            outputFormat : 'text/javascript',
+            format_options : 'callback:getJson',
+            SrsName : 'EPSG:4326'
+        };
+        var parameters = L.Util.extend(defaultParameters);
+        var URL = owsrootUrl + L.Util.getParamString(parameters);
+        var wardsWFS = null;
+        var ajax = $.ajax({
+        url : URL,
+        dataType : 'jsonp',
+        jsonpCallback : 'getJson',
+        success : function (response) {
+            wardsWFS = L.geoJson(response, {
+                style: function (feature) {
+                    return {
+                        stroke: true,
+                        weight: 0.5,
+                        color:"black",
+                        fillColor: getColor(feature.properties.population),
+                        fillOpacity: 0.7
+                    };
+                },
+                onEachFeature: function (feature, layer) {
+                    popupOptions = {maxWidth: 200};
+                    layer.bindPopup("<b>" + feature.properties.name + "</b>"
+                    + "<br>" + "Population: " + feature.properties.population
+                    + "<br>" + "Households: " + feature.properties.households
+                        ,popupOptions);
+                }
+            }).addTo(map);
+            LC.addOverlay(wardsWFS, "Wards");
+            }
+        });
+
+        //POI_polygons Layer
+        var defaultParameters = {
+            service : 'WFS',
+            version : '1.0.0',
+            request : 'GetFeature',
+            typeName : 'FrontlineGIS:poi_polygons',
+            outputFormat : 'text/javascript',
+            format_options : 'callback:getJson',
+            SrsName : 'EPSG:4326'
+        };
+        var parameters = L.Util.extend(defaultParameters);
+        var URL = owsrootUrl + L.Util.getParamString(parameters);
+        var poi_polygonWFS = null;
+        var ajax = $.ajax({
+        url : URL,
+        dataType : 'jsonp',
+        jsonpCallback : 'getJson',
+        success : function (response) {
+            poi_polygonWFS = L.geoJson(response, {
+                style: function (feature) {
+                    return {
+                        stroke: true,
+                        weight: 0.5,
+                        //color:"black",
+                        fillColor:"#FBBF4D",
+                        fillOpacity: 0.8
+                    };
+                },
+                onEachFeature: function (feature, layer) {
+                    popupOptions = {maxWidth: 200};
+                    layer.bindPopup("Name: " + feature.properties.Name
+                    + "<br>" + "Amenity: " + feature.properties.amenity
+                        ,popupOptions);
+                }
+            }).addTo(map);
+            LC.addOverlay(poi_polygonWFS, "Points of Interest");
+            }
+        });
+
+            //Healthsites Layer
+            var defaultParameters = {
+            service : 'WFS',
+            version : '1.0.0',
+            request : 'GetFeature',
+            typeName : 'FrontlineGIS:healthsites',
+            outputFormat : 'text/javascript',
+            format_options : 'callback:getJson',
+            SrsName : 'EPSG:4326'
+        };
+        var parameters = L.Util.extend(defaultParameters);
+        var URL = owsrootUrl + L.Util.getParamString(parameters);
+        var healthsitesWFS = null;
+        var ajax = $.ajax({
+        url : URL,
+        dataType : 'jsonp',
+        jsonpCallback : 'getJson',
+        success : function (response) {
+            healthsitesWFS = L.geoJson(response, {
+                style: function (feature) {
+                    return {
+                        //stroke: true,
+                        //weight: 0.5,
+                        //color:"black",
+                        //fillColor: getColor(feature.properties.population),
+                        //fillOpacity: 0.6
+                        iconUrl: '321.jpg'
+                    };
+                },
+                onEachFeature: function (feature, layer) {
+                    popupOptions = {maxWidth: 200};
+                    layer.bindPopup("Healthsite name: " + feature.properties.health_f_1
+                        ,popupOptions);
+                }
+            }).addTo(map);
+            LC.addOverlay(healthsitesWFS, "Health sites");
+            }
+        });
+
+        //Roads Layer
+        var roadsWMS = L.tileLayer.wms('http://geodev.co.za:8080/geoserver/FrontlineGIS/wms', {
+         layers: 'FrontlineGIS:roads',
+         format: 'image/png',
+         transparent: true,
+       }).addTo(map);
+       
+    
+        //Layer Control
+        var baseMaps = {
+            "OpenStreetMap": OSM,
+            "Google Satellite": GOOGLESAT,
+            "Frontline GIS": CUSTOM
+        };
+        var overlayMaps = {
+            "Wards": wardsWFS,
+            "Health sites": healthsitesWFS,
+            "Points of Interest": poi_polygonWFS,
+            "Roads": roadsWMS
+        };
+
+        var LC = L.control.layers(baseMaps);
+        LC.addTo(map);
+        LC.addOverlay(roadsWMS, "Roads");
+
+        //Scalebar
+        L.control.scale().addTo(map);
+    </script>
+</body>
+</html>
