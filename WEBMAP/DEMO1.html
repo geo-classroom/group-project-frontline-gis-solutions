@@ -127,45 +127,6 @@
             }
         });
 
-            //Healthsites Layer
-            var defaultParameters = {
-            service : 'WFS',
-            version : '1.0.0',
-            request : 'GetFeature',
-            typeName : 'FrontlineGIS:healthsites',
-            outputFormat : 'text/javascript',
-            format_options : 'callback:getJson',
-            SrsName : 'EPSG:4326'
-        };
-        var parameters = L.Util.extend(defaultParameters);
-        var URL = owsrootUrl + L.Util.getParamString(parameters);
-        var healthsitesWFS = null;
-        var ajax = $.ajax({
-        url : URL,
-        dataType : 'jsonp',
-        jsonpCallback : 'getJson',
-        success : function (response) {
-            healthsitesWFS = L.geoJson(response, {
-                style: function (feature) {
-                    return {
-                        //stroke: true,
-                        //weight: 0.5,
-                        //color:"black",
-                        //fillColor: getColor(feature.properties.population),
-                        //fillOpacity: 0.6
-                        iconUrl: '321.jpg'
-                    };
-                },
-                onEachFeature: function (feature, layer) {
-                    popupOptions = {maxWidth: 200};
-                    layer.bindPopup("Healthsite name: " + feature.properties.health_f_1
-                        ,popupOptions);
-                }
-            }).addTo(map);
-            LC.addOverlay(healthsitesWFS, "Health sites");
-            }
-        });
-
         //Roads Layer
         var roadsWMS = L.tileLayer.wms('http://geodev.co.za:8080/geoserver/FrontlineGIS/wms', {
          layers: 'FrontlineGIS:roads',
@@ -182,17 +143,48 @@
         };
         var overlayMaps = {
             "Wards": wardsWFS,
-            "Health sites": healthsitesWFS,
+            "Health sites": healthsitesLayer,
             "Points of Interest": poi_polygonWFS,
             "Roads": roadsWMS
         };
 
-        var LC = L.control.layers(baseMaps);
+        var LC = L.control.layers(baseMaps,null,{collapsed:false});
         LC.addTo(map);
         LC.addOverlay(roadsWMS, "Roads");
 
         //Scalebar
         L.control.scale().addTo(map);
+
+        //Healthsites Icon
+        var healthsiteIcon = L.icon({
+            iconUrl: 'syringe.png',
+            iconSize: 22,
+        })
+
+        //Healthsites Layer
+        var healthsitesLayer = L.layerGroup();
+        var hs1 = L.marker([-25.70892,28.35752], {icon: healthsiteIcon}).bindPopup("<b>AME Pharmacy</b>").addTo(healthsitesLayer);
+        var hs2 = L.marker([-25,72178,28.38994], {icon: healthsiteIcon}).bindPopup("<b>Maruke Pharmacy Mamelodi Gardens</b>").addTo(healthsitesLayer);
+        var hs3 = L.marker([-25,70421,28.41439], {icon: healthsiteIcon}).bindPopup("<b>Hospital</b>").addTo(healthsitesLayer);
+        var hs4 = L.marker([-25,70421,28.38318], {icon: healthsiteIcon}).bindPopup("<b>Tshepong Pharmacy</b>").addTo(healthsitesLayer);
+        var hs5 = L.marker([-25,72021,28.36911], {icon: healthsiteIcon}).bindPopup("<b>Mamelodi Hospital</b>").addTo(healthsitesLayer);
+        var hs6 = L.marker([-25,72199,28.38665], {icon: healthsiteIcon}).bindPopup("<b>Phahameng Clinic</b>").addTo(healthsitesLayer);
+        var hs7 = L.marker([-25,71324,28.37464], {icon: healthsiteIcon}).bindPopup("<b>Mamelodi Hospital Pharmacy</b>").addTo(healthsitesLayer);
+        var hs8 = L.marker([-25.71453,28.37471], {icon: healthsiteIcon}).bindPopup("<b>Khutsong Pharmacy</b>").addTo(healthsitesLayer);
+        var hs9 = L.marker([-25.70595,28.39408], {icon: healthsiteIcon}).bindPopup("<b>Stanza Bopape Clinic</b>").addTo(healthsitesLayer);
+        var hs10 = L.marker([-25.71423,28.34884], {icon: healthsiteIcon}).bindPopup("<b>Mamelodi West Clinic</b>").addTo(healthsitesLayer);
+        var hs11 = L.marker([-25.70400,28.37549], {icon: healthsiteIcon}).bindPopup("<b>Holani Clinic</b>").addTo(healthsitesLayer);
+        var hs12 = L.marker([-25.71439,28.41555], {icon: healthsiteIcon}).bindPopup("<b>Stanza 2 Clinic</b>").addTo(healthsitesLayer);
+        var hs13 = L.marker([-25.70657,28.42285], {icon: healthsiteIcon}).bindPopup("<b>Dis-Chem Mams Mall</b>").addTo(healthsitesLayer);
+        var hs14 = L.marker([-25.70095,28.42239], {icon: healthsiteIcon}).bindPopup("<b>Mahube Valley Pharmacy</b>").addTo(healthsitesLayer);
+        var hs15 = L.marker([-25.72257,28.41589], {icon: healthsiteIcon}).bindPopup("<b>Mamelodi East Clinic</b>").addTo(healthsitesLayer);
+        var hs16 = L.marker([-25.72247,28.43755], {icon: healthsiteIcon}).bindPopup("<b>Lusaka Clinic</b>").addTo(healthsitesLayer);
+
+        healthsitesLayer.addTo(map);
+        LC.addOverlay(healthsitesLayer, "Healthsites");
+
+        //var healthsitesLayer = L.Layergroup([hs1]);
+        //var healthsitesLayer = L.layergroup([one]).addTo(map);
     </script>
 </body>
 </html>
