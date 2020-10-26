@@ -3,7 +3,7 @@
 <head>
     <title>Frontline GIS Soloutions</title>
 
-    <link rel="icon" href="Globe.png">
+    <link rel="icon" href="../Webmap Images/Globe.png">
     <meta charset="utf-8" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
     integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
@@ -13,11 +13,11 @@
     crossorigin=""></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
-<body style="background-image: url('background.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%;">
+<body style="background-image: url('../Webmap\ Images/background.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%;">
     
     <table style="width:100%">
         <tr>
-            <td style="width:300px"><a href="https://frontlinegissol.wixsite.com/home"><img src="FrontlineGIS_Logo.png" width="auto" height="100" href="https://www.qries.com/"></a></td>
+            <td style="width:300px"><a href="https://frontlinegissol.wixsite.com/home"><img src="../Webmap Images/FrontlineGIS_Logo.png" width="auto" height="100" href="https://www.qries.com/"></a></td>
             <td style="background-color:#195E83; width:100%;">
                 <h1 style="color:#FBBF4D;"><u>Mapping Mamelodi Healthsites to Optimize Covid-19 Vaccine Distribution</u></h1>
             </td>
@@ -134,7 +134,7 @@
 
         //Healthsites Icon
         var healthsiteIcon = L.icon({
-            iconUrl: 'syringe.png',
+            iconUrl: '../Webmap\ Images/syringe.png',
             iconSize: 22,
 			pane: 'hs'
         });
@@ -196,13 +196,13 @@
             "Google Satellite": GOOGLESAT,
             "Frontline GIS": CUSTOM
         };
-        var overlayMaps = {
+        /*var overlayMaps = {
             "Wards": wardsWFS,
             "Healthsites": healthsitesWFS,
             "Points of Interest": poi_polygonWFS,
             "Roads": roadsWMS,
             "Catchment Area": catchmentWMS,
-        };
+        };*/
 
         var LC = L.control.layers(baseMaps,null,{collapsed:false});
         LC.addTo(map);
@@ -335,6 +335,57 @@
 		map.getPane('hs').style.zIndex = 654;
 		//clicking wont be affected by pane 'hs'
 		map.getPane('hs').style.pointerEvents = 'none';
+
+
+        var overlaysTree = {
+    label: 'Points of Interest',
+    selectAllCheckbox: 'Un/select all',
+    children: [
+        {
+            label: 'Europe',
+            selectAllCheckbox: true,
+            children: [
+                {
+                    label: 'France',
+                    selectAllCheckbox: true,
+                    children: [
+                        { label: 'Tour Eiffel', layer: L.marker([48.8582441, 2.2944775]) },
+                        { label: 'Notre Dame', layer: L.marker([48.8529540, 2.3498726]) },
+                        { label: 'Louvre', layer: L.marker([48.8605847, 2.3376267]) },
+                    ]
+                }, {
+                    label: 'Germany',
+                    selectAllCheckbox: true,
+                    children: [
+                        { label: 'Branderburger Tor', layer: L.marker([52.5162542, 13.3776805])},
+                        { label: 'Kölner Dom', layer: L.marker([50.9413240, 6.9581201])},
+                    ]
+                }, {label: 'Spain',
+                    selectAllCheckbox: 'De/seleccionar todo',
+                    children: [
+                        { label: 'Palacio Real', layer: L.marker([40.4184145, -3.7137051])},
+                        { label: 'La Alhambra', layer: L.marker([37.1767829, -3.5892795])},
+                    ]
+                }
+            ]
+        }, {
+            label: 'Asia',
+            selectAllCheckbox: true,
+            children: [
+                {
+                    label: 'Jordan',
+                    selectAllCheckbox: true,
+                    children: [
+                        { label: 'Petra', layer: L.marker([30.3292215, 35.4432464]) },
+                        { label: 'Wadi Rum', layer: L.marker([29.6233486, 35.4390656]) }
+                    ]
+                }, {
+
+                }
+            ]
+        }
+    ]
+}
 
     </script>
 
