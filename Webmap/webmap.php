@@ -29,7 +29,7 @@
     <div class="left" id="map" style="width: 50%; height: 600px"></div>
       <div class="right">
       <div class="box" style="height:200px;">
-      <h2>Clinic Calculation Tool</h2>
+      <h2 style="color:#FBBF4D;">Clinic Calculation Tool</h2>
       <form name="insert" action="webmap.php" method="POST" >
           Number of Vaccinations Available: <input type="int" name="vaccinations_available" /> <br>
           <input type="submit" />
