@@ -11,7 +11,7 @@
     background-color:#195E83;
   }
   .left {
-    flex: 2;
+    flex: 1.5;
   }
 
 .leaflet-control-layers-toggle.leaflet-layerstree-named-toggle {
