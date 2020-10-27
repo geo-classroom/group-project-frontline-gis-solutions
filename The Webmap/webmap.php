@@ -28,7 +28,13 @@
 <div class="content">
     <div class="left" id="map" style="width: 50%; height: 600px"></div>
       <div class="right">
-      <div class="box" style="height:200px;">PHP</div>
+      <div class="box" style="height:200px;">
+      <h2>Clinic Calculation Tool</h2>
+      <form name="insert" action="webmap.php" method="POST" >
+          Number of Vaccinations Available: <input type="int" name="vaccinations_available" /> <br>
+          <input type="submit" />
+      </form>
+    </div>
       <div class="box" style="height:395px; margin-top: 5px;">
         <style type="text/css">
             .tg  {border-collapse:collapse;border-color:#9ABAD9;border-spacing:0;}
@@ -141,3 +147,46 @@
 	
 </body>
 </html>
+
+<?php
+	$host = "host=geodev.co.za";
+	$port = "port=5432";
+	$dbname = "dbname=FGS";
+  $credentials = "user=postgres password=admin";
+
+  $mahube_valley_pharmacy = 0.02848  * $_POST[vaccinations_available];
+  $hospital = 0.06719 * $_POST[vaccinations_available];
+  $dischem_mams_mall = 0.2* $_POST[vaccinations_available];
+  $stanza_bopape_chc = 0.1* $_POST[vaccinations_available];
+  $stanza_2_clinic = 50* $_POST[vaccinations_available];
+  $tshepong_pharmacy = 50* $_POST[vaccinations_available];
+  $holani_clinic = 50* $_POST[vaccinations_available];
+  $mamelodi_hospital_pharmacy = 50* $_POST[vaccinations_available];
+  $khutsong_pharmacy = 50* $_POST[vaccinations_available];
+  $ame_pharmacy = 50* $_POST[vaccinations_available];
+  $mamelodi_west_clinic = 50* $_POST[vaccinations_available];
+  $mamelodi_hospital = 50* $_POST[vaccinations_available];
+  $phahameng_clinic = 50* $_POST[vaccinations_available];
+  $maruke_pharmacy_mamelodi_gardens = 50* $_POST[vaccinations_available];
+  $mamelodi_east_clinic = 50* $_POST[vaccinations_available];
+  $lusaka_clinic = 50* $_POST[vaccinations_available];
+
+
+	$db = pg_connect("$host $port $dbname $credentials");
+
+  $query = "INSERT INTO clinic_weights VALUES ('$_POST[vaccinations_available]','$mahube_valley_pharmacy','$hospital','$dischem_mams_mall','$stanza_bopape_chc',
+  '$stanza_2_clinic','$tshepong_pharmacy','$holani_clinic','$mamelodi_hospital_pharmacy','$khutsong_pharmacy','$ame_pharmacy','$mamelodi_west_clinic',
+  '$mamelodi_hospital','$phahameng_clinic','$maruke_pharmacy_mamelodi_gardens','$mamelodi_east_clinic','$lusaka_clinic')";
+
+  //echo $query;
+
+  //check connection
+  if(!$db) {
+    echo('Connection failed!<br />');
+  } else {
+      echo 'Connection established!<br />';
+  }
+
+  $result = pg_query($query);
+
+?>
