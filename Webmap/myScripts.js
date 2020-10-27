@@ -100,7 +100,7 @@ LC.addOverlay(poi_polygonWFS, "Points of Interest");
 
 //Healthsites Icon
 var healthsiteIcon = L.icon({
-iconUrl: '../Webmap\ Images/syringe.png',
+iconUrl: '../Webmap_Images/syringe.png',
 iconSize: 22,
 pane: 'hs'
 });
