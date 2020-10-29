@@ -25,7 +25,7 @@
     <br>
 
 <div class="content">
-    <div class="left" id="map" style="width: 50%; height: 600px"></div>
+    <div class="left" id="map" style="width: 50%; height: 600px; border-style: ridge; border-width: 3px; border-radius: 8px; ; border-color: #006994;"></div> <!--border colour is sea blue-->
       <div class="right">
       <div class="box" style="height:200px;">
       <h2 style="color:#FBBF4D;">Clinic Calculation Tool</h2>
