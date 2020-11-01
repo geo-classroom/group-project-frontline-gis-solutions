@@ -3,7 +3,7 @@
 <head>
     <!--Setting up Webpage--->
     <title>Frontline GIS Soloutions</title>
-    <link rel="icon" href="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap Images/Globe.png"><meta charset="utf-8" />
+    <link rel="icon" href="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/Globe.png"><meta charset="utf-8" />
     <!--Linking Stylesheets--->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
     <link rel="stylesheet" href="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap/L.Control.Layers.Tree.css">
