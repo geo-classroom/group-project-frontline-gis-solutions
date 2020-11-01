@@ -83,8 +83,8 @@ poi_polygonWFS = L.geoJson(response, {
         return {
             stroke: true,
             weight: 0.5,
-            //color:"black",
-            fillColor:"#FBBF4D",
+            color:"black",
+            fillColor:"#ffb221",
             fillOpacity: 0.8,
             pane: 'poi'
         };
@@ -94,7 +94,7 @@ poi_polygonWFS = L.geoJson(response, {
         layer.bindPopup(`<b>${feature.properties.name}</b>`,popupOptions);
     }
 });
-LC.addOverlay(poi_polygonWFS, "Points of Interest");
+LC.addOverlay(poi_polygonWFS, "Places of Interest");
 }
 });
 
