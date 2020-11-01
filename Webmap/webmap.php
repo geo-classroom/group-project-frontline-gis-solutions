@@ -31,9 +31,43 @@
       <h2 style="color:#FBBF4D;">Clinic Calculation Tool</h2>
       <form name="insert" action="webmap.php" method="POST" >
           Number of Vaccinations Available: <input type="int" name="vaccinations_available" /> <br>
-          <p><img src="https://iconsplace.com/wp-content/uploads/_icons/00ff00/256/png/connected-icon-3-256.png" style="height:20px; width:20px;">
+          <?php
+          	$host = "host=db.geolive.co.za";
+            $port = "port=5432";
+            $dbname = "dbname=FGS";
+            $credentials = "user=postgres password=T5YCzESQ3HPI";
+            $db = pg_connect("$host $port $dbname $credentials");
+
+            if(!$db) {echo('<p><img src="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/red-connect.png" style="height:20px; width:20px;">');} 
+            else {echo '<p><img src="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/green-connect.png" style="height:20px; width:20px;">';}
+          ?>
           <input type="submit" />
       </form>
+      <?php
+        $mahube_valley_pharmacy = 0.02848  * $_POST[vaccinations_available];
+        $hospital = 0.06719 * $_POST[vaccinations_available];
+        $dischem_mams_mall = 0.03641* $_POST[vaccinations_available];
+        $stanza_bopape_chc = 0.08662* $_POST[vaccinations_available];
+        $stanza_2_clinic = 0.08141* $_POST[vaccinations_available];
+        $tshepong_pharmacy = 0.06488* $_POST[vaccinations_available];
+        $holani_clinic = 0.05474* $_POST[vaccinations_available];
+        $mamelodi_hospital_pharmacy = 0.09192* $_POST[vaccinations_available];
+        $khutsong_pharmacy = 0.0334* $_POST[vaccinations_available];
+        $ame_pharmacy = 0.08698* $_POST[vaccinations_available];
+        $mamelodi_west_clinic = 0.08746* $_POST[vaccinations_available];
+        $mamelodi_hospital = 0.0222* $_POST[vaccinations_available];
+        $phahameng_clinic = 0.07575* $_POST[vaccinations_available];
+        $maruke_pharmacy_mamelodi_gardens = 0.06542* $_POST[vaccinations_available];
+        $mamelodi_east_clinic = 0.06174* $_POST[vaccinations_available];
+        $lusaka_clinic = 0.0554* $_POST[vaccinations_available];
+
+        $query = "INSERT INTO clinic_weights VALUES ('$_POST[vaccinations_available]','$mahube_valley_pharmacy','$hospital','$dischem_mams_mall','$stanza_bopape_chc',
+        '$stanza_2_clinic','$tshepong_pharmacy','$holani_clinic','$mamelodi_hospital_pharmacy','$khutsong_pharmacy','$ame_pharmacy','$mamelodi_west_clinic',
+        '$mamelodi_hospital','$phahameng_clinic','$maruke_pharmacy_mamelodi_gardens','$mamelodi_east_clinic','$lusaka_clinic')";
+
+        $result = pg_query($query);
+        echo $result;
+      ?>
     </div>
       <div class="box" style="height:395px; margin-top: 5px;">
         <style type="text/css">
@@ -59,7 +93,9 @@
                 <td class="tg-0lax">Mahube Valley Pharmacy </td>
                 <td class="tg-0lax">173,480</td>
                 <td class="tg-0lax">10451,107</td>
-                <td class="tg-0lax">XXXXXXXXXX</td>
+                <?php
+                echo '<td class="tg-0lax">'+ $mahube_valley_pharmacy + '</td>'
+                ?>
               </tr>
               <tr>
                 <td class="tg-0lax">Khutsong Pharmacy</td>
@@ -160,46 +196,3 @@
 	
 </body>
 </html>
-
-<?php
-	$host = "host=geodev.co.za";
-	$port = "port=5432";
-	$dbname = "dbname=FGS";
-  $credentials = "user=postgres password=admin";
-
-  $mahube_valley_pharmacy = 0.02848  * $_POST[vaccinations_available];
-  $hospital = 0.06719 * $_POST[vaccinations_available];
-  $dischem_mams_mall = 0.03641* $_POST[vaccinations_available];
-  $stanza_bopape_chc = 0.08662* $_POST[vaccinations_available];
-  $stanza_2_clinic = 0.08141* $_POST[vaccinations_available];
-  $tshepong_pharmacy = 0.06488* $_POST[vaccinations_available];
-  $holani_clinic = 0.05474* $_POST[vaccinations_available];
-  $mamelodi_hospital_pharmacy = 0.09192* $_POST[vaccinations_available];
-  $khutsong_pharmacy = 0.0334* $_POST[vaccinations_available];
-  $ame_pharmacy = 0.08698* $_POST[vaccinations_available];
-  $mamelodi_west_clinic = 0.08746* $_POST[vaccinations_available];
-  $mamelodi_hospital = 0.0222* $_POST[vaccinations_available];
-  $phahameng_clinic = 0.07575* $_POST[vaccinations_available];
-  $maruke_pharmacy_mamelodi_gardens = 0.06542* $_POST[vaccinations_available];
-  $mamelodi_east_clinic = 0.06174* $_POST[vaccinations_available];
-  $lusaka_clinic = 0.0554* $_POST[vaccinations_available];
-
-
-	$db = pg_connect("$host $port $dbname $credentials");
-
-  $query = "INSERT INTO clinic_weights VALUES ('$_POST[vaccinations_available]','$mahube_valley_pharmacy','$hospital','$dischem_mams_mall','$stanza_bopape_chc',
-  '$stanza_2_clinic','$tshepong_pharmacy','$holani_clinic','$mamelodi_hospital_pharmacy','$khutsong_pharmacy','$ame_pharmacy','$mamelodi_west_clinic',
-  '$mamelodi_hospital','$phahameng_clinic','$maruke_pharmacy_mamelodi_gardens','$mamelodi_east_clinic','$lusaka_clinic')";
-
-  //echo $query;
-
-  //check connection
-  if(!$db) {
-    echo('Connection failed!<br />');
-  } else {
-      echo 'Connection established!<br />';
-  }
-
-  $result = pg_query($query);
-
-?>
