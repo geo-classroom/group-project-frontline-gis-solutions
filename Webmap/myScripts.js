@@ -18,7 +18,7 @@ return d > 17000 ? '#78787B' :
                 '#E9E9E9';
 }
 
-var owsrootUrl = 'http://geodev.co.za:8080/geoserver/FrontlineGIS/ows';
+var owsrootUrl = 'https://geolive.co.za/geoserver/FrontlineGIS/ows';
 //Wards Layer
 var defaultParameters = {
 service : 'WFS',
@@ -140,7 +140,7 @@ success : function (response) {
 });
 
 //Roads Layer
-var roadsWMS = L.tileLayer.wms('http://geodev.co.za:8080/geoserver/FrontlineGIS/wms', {
+var roadsWMS = L.tileLayer.wms('https://geolive.co.za/geoserver/FrontlineGIS/wms', {
 layers: 'FrontlineGIS:roads',
 format: 'image/png',
 transparent: true,
