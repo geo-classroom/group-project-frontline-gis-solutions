@@ -267,16 +267,12 @@ L.control.layers.tree(null, overlaysTree,{collapsed:false}).addTo(map);
 
 function validateCalculator(){
     var x = parseInt(document.forms['calculator']['vaccinations_available'].value);
-    var validInput = false;
     if (Number.isNaN(x)){
-        validInput = false;
-        alert("Invalid");
+        Notiflix.Report.Success();
     }
     else {
-        validInput = true;
-        alert("Valid");
+        Notiflix.Report.Success();
     }
-    return false;
 }
 // add coordinates with mouse movement to the bottom right of the map												
 L.Control.MousePosition = L.Control.extend({

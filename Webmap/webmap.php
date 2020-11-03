@@ -29,7 +29,7 @@
       <div class="right">
       <div class="box" style="height:200px;">
       <h2 style="color:#FBBF4D;">Clinic Calculation Tool</h2>
-      <form name="calculator" action="webmap.php" onsubmit="validateCalculator()" method="POST" >
+      <form name="insert" action="webmap.php" onsubmit="validateCalculator()" method="POST" >
           Number of Vaccinations Available: <input type="int" name="vaccinations_available" /> <br>
           <?php
           	$host = "host=db.geolive.co.za";
