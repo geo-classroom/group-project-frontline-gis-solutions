@@ -139,14 +139,6 @@ success : function (response) {
 }
 });
 
-//Roads Layer
-var roadsWMS = L.tileLayer.wms('https://geolive.co.za/geoserver/FrontlineGIS/wms', {
-layers: 'FrontlineGIS:roads',
-format: 'image/png',
-transparent: true,
-pane: 'roads'
-});
-
 //Layer Control
 var baseMaps = {
 "OpenStreetMap": OSM,
@@ -156,7 +148,6 @@ var baseMaps = {
 
 var LC = L.control.layers(baseMaps,null,{collapsed:false});
 LC.addTo(map);
-LC.addOverlay(roadsWMS, "Roads");
 
 
 //Scalebar
@@ -197,13 +188,7 @@ var CL14 = L.geoJSON(CA14, {style: {"color": '#800020',"weight": 1.5,"opacity": 
 var CL15 = L.geoJSON(CA15, {style: {"color": '#800020',"weight": 1.5,"opacity": 0.7}}).addTo(map);
 var CL16 = L.geoJSON(CA16, {style: {"color": '#800020',"weight": 1.5,"opacity": 0.7}}).addTo(map);
 
-//Ordering the Layers
-//create pane for roads Layer
-map.createPane('roads');
-// reference the pane with 'getPane' and set zindex to 650
-map.getPane('roads').style.zIndex = 397;
-//clicking wont be affected by pane 'roads'
-map.getPane('roads').style.pointerEvents = 'none';		
+//Ordering the Layers		
 
 //create pane for Wards Layer
 map.createPane('wards');
@@ -278,3 +263,18 @@ children: [
 ]
 }
 L.control.layers.tree(null, overlaysTree,{collapsed:false}).addTo(map);
+
+
+function validateCalculator(){
+    var x = parseInt(document.forms['calculator']['vaccinations_available'].value);
+    var validInput = false;
+    if (Number.isNaN(x)){
+        validInput = false;
+        alert("Invalid");
+    }
+    else {
+        validInput = true;
+        alert("Valid");
+    }
+    return false;
+}

@@ -29,7 +29,7 @@
       <div class="right">
       <div class="box" style="height:200px;">
       <h2 style="color:#FBBF4D;">Clinic Calculation Tool</h2>
-      <form name="insert" action="webmap.php" method="POST" >
+      <form name="calculator" action="webmap.php" method="POST" >
           Number of Vaccinations Available: <input type="int" name="vaccinations_available" /> <br>
           <?php
           	$host = "host=db.geolive.co.za";
@@ -41,7 +41,7 @@
             if(!$db) {echo('<p><img src="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/red-connect.png" style="height:20px; width:20px;">');} 
             else {echo '<p><img src="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/green-connect.png" style="height:20px; width:20px;">';}
           ?>
-          <input type="submit" />
+          <input type="submit" onsubmit="return validateCalculator()"/>
       </form>
       <?php
         $mahube_valley_pharmacy = 0.02848  * $_POST[vaccinations_available];
@@ -60,13 +60,12 @@
         $maruke_pharmacy_mamelodi_gardens = 0.06542* $_POST[vaccinations_available];
         $mamelodi_east_clinic = 0.06174* $_POST[vaccinations_available];
         $lusaka_clinic = 0.0554* $_POST[vaccinations_available];
-
+        if()
         $query = "INSERT INTO clinic_weights VALUES ('$_POST[vaccinations_available]','$mahube_valley_pharmacy','$hospital','$dischem_mams_mall','$stanza_bopape_chc',
         '$stanza_2_clinic','$tshepong_pharmacy','$holani_clinic','$mamelodi_hospital_pharmacy','$khutsong_pharmacy','$ame_pharmacy','$mamelodi_west_clinic',
         '$mamelodi_hospital','$phahameng_clinic','$maruke_pharmacy_mamelodi_gardens','$mamelodi_east_clinic','$lusaka_clinic')";
 
         $result = pg_query($query);
-        echo $result;
       ?>
     </div>
       <div class="box" style="height:395px; margin-top: 5px;">
@@ -93,9 +92,7 @@
                 <td class="tg-0lax">Mahube Valley Pharmacy </td>
                 <td class="tg-0lax">173,480</td>
                 <td class="tg-0lax">10451,107</td>
-                <?php
-                echo '<td class="tg-0lax">'+ $mahube_valley_pharmacy + '</td>'
-                ?>
+                <td class="tg-0lax">XXXXXXXXXX</td>
               </tr>
               <tr>
                 <td class="tg-0lax">Khutsong Pharmacy</td>
