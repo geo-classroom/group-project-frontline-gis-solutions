@@ -8,14 +8,14 @@ var GOOGLESAT = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}'
 var CUSTOM = L.tileLayer('https://api.mapbox.com/styles/v1/nicholasdk/ckgl6yzhd1y7v19lsm74n4324/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibmljaG9sYXNkayIsImEiOiJjazB1dmRsZ24wbTAzM2pxcHo4N3d1aml1In0.v4FF5wiPpmyg5rrnq23kIg',{attribution: '&copy; ' + '<a href="https://www.mapbox.com/">Mapbox</a>' + ' Contributors',maxZoom: 18,}).addTo(map);
 
 function getColor(d) {
-return d > 17000 ? '#78787B' :
+return d > 17000 ? '#606062' :
     d > 14000  ? '#99999C' :
     d > 8000  ? '#99999C' :
     d > 6000  ? '#BBBBBD' :
     d > 3000   ? '#DDDDDE' :
     d > 2000   ? '#DDDDDE' :
-    d > 0   ? '#E9E9E9' :
-                '#E9E9E9';
+    d > 0   ? '#eaeaeb' :
+                '#eaeaeb';
 }
 
 var owsrootUrl = 'https://geolive.co.za/geoserver/FrontlineGIS/ows';
