@@ -41,7 +41,7 @@
             if(!$db) {echo('<p><img src="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/red-connect.png" style="height:20px; width:20px;">');} 
             else {echo '<p><img src="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/green-connect.png" style="height:20px; width:20px;">';}
           ?>
-          <input type="submit"/>
+          <input type="submit" onclick="validateCalculator();"/>
       </form>
       <?php
         $mahube_valley_pharmacy = 0.02848  * $_POST[vaccinations_available];

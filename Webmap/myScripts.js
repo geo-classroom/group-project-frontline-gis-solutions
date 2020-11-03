@@ -271,8 +271,9 @@ function validateCalculator(){
         Notiflix.Report.Success();
     }
     else {
-        Notiflix.Report.Success();
+        Notiflix.Report.Failure();
     }
+    return false;
 }
 // add coordinates with mouse movement to the bottom right of the map												
 L.Control.MousePosition = L.Control.extend({
