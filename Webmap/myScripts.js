@@ -319,6 +319,6 @@ L.control.mousePosition = function (options) {
 L.control.mousePosition().addTo(map);
 
 function formSubmission(){
-    var x = parseInt(document.forms['calculator']['vaccinations_available'].value);
-    alert(x);
+    var x = document.forms['calculator']['vaccinations_available'].value;
+    swal("Success!","See below for results", "success");
 }
