@@ -265,16 +265,7 @@ children: [
 L.control.layers.tree(null, overlaysTree,{collapsed:false}).addTo(map);
 
 
-function validateCalculator(){
-    var x = parseInt(document.forms['calculator']['vaccinations_available'].value);
-    if (Number.isNaN(x)){
-        Notiflix.Report.Success();
-    }
-    else {
-        Notiflix.Report.Failure();
-    }
-    return false;
-}
+
 // add coordinates with mouse movement to the bottom right of the map												
 L.Control.MousePosition = L.Control.extend({
   options: {
@@ -326,3 +317,8 @@ L.control.mousePosition = function (options) {
 };
 
 L.control.mousePosition().addTo(map);
+
+function formSubmission(){
+    var x = parseInt(document.forms['calculator']['vaccinations_available'].value);
+    alert(x);
+}

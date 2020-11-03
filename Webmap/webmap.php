@@ -6,11 +6,13 @@
     <link rel="icon" href="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/Globe.png"><meta charset="utf-8" />
     <!--Linking Stylesheets--->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
-    <link rel="stylesheet" href="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap/L.Control.Layers.Tree.css">
+    <link rel="stylesheet" href="../Webmap/L.Control.Layers.Tree.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <!--Linking Scripts--->
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="crossorigin=""></script>
-    <script src="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap/L.Control.Layers.Tree.js"></script>
+    <script src="../Webmap/L.Control.Layers.Tree.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body style="background-image: url('https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/background.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%;">
@@ -29,8 +31,8 @@
       <div class="right">
       <div class="box" style="height:200px;">
       <h2 style="color:#FBBF4D;">Clinic Calculation Tool</h2>
-      <form name="insert" action="webmap.php" onsubmit="validateCalculator()" method="POST" >
-          Number of Vaccinations Available: <input type="int" name="vaccinations_available" /> <br>
+      <form name="calculator" action="webmap.php" onsubmit="formSubmission()" method="POST" >
+          Number of Vaccinations Available: <input type="number" name="vaccinations_available" /> <br>
           <?php
           	$host = "host=db.geolive.co.za";
             $port = "port=5432";
@@ -41,7 +43,7 @@
             if(!$db) {echo('<p><img src="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/red-connect.png" style="height:20px; width:20px;">');} 
             else {echo '<p><img src="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/green-connect.png" style="height:20px; width:20px;">';}
           ?>
-          <input type="submit" onclick="validateCalculator();"/>
+          <input type="submit"/>
       </form>
       <?php
         $mahube_valley_pharmacy = 0.02848  * $_POST[vaccinations_available];
