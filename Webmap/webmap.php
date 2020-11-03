@@ -60,10 +60,12 @@
         $maruke_pharmacy_mamelodi_gardens = 0.06542* $_POST[vaccinations_available];
         $mamelodi_east_clinic = 0.06174* $_POST[vaccinations_available];
         $lusaka_clinic = 0.0554* $_POST[vaccinations_available];
-        if()
-        $query = "INSERT INTO clinic_weights VALUES ('$_POST[vaccinations_available]','$mahube_valley_pharmacy','$hospital','$dischem_mams_mall','$stanza_bopape_chc',
-        '$stanza_2_clinic','$tshepong_pharmacy','$holani_clinic','$mamelodi_hospital_pharmacy','$khutsong_pharmacy','$ame_pharmacy','$mamelodi_west_clinic',
-        '$mamelodi_hospital','$phahameng_clinic','$maruke_pharmacy_mamelodi_gardens','$mamelodi_east_clinic','$lusaka_clinic')";
+        if(is_numeric($_POST[vaccinations_available]))
+        {
+          $query = "INSERT INTO clinic_weights VALUES ('$_POST[vaccinations_available]','$mahube_valley_pharmacy','$hospital','$dischem_mams_mall','$stanza_bopape_chc',
+          '$stanza_2_clinic','$tshepong_pharmacy','$holani_clinic','$mamelodi_hospital_pharmacy','$khutsong_pharmacy','$ame_pharmacy','$mamelodi_west_clinic',
+          '$mamelodi_hospital','$phahameng_clinic','$maruke_pharmacy_mamelodi_gardens','$mamelodi_east_clinic','$lusaka_clinic')";
+        }
 
         $result = pg_query($query);
       ?>
