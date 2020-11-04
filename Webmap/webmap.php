@@ -28,10 +28,11 @@
 <div class="content">
     <div class="left" id="map" style="width: 50%; height: 600px; border-style: ridge; border-width: 3px; border-radius: 8px; ; border-color: #006994;"></div> <!--border colour is sea blue-->
       <div class="right">
-      <div class="box" style="height:200px;">
+      <div class="box" style="height:150px; border-style: ridge; border-width: 3px; border-radius: 8px; border-color: #006994;"> <!-- the blue box with input and submit button -->
       <h2 style="color:#FBBF4D;">Clinic Calculation Tool</h2>
       <form name="calculator" action="webmap.php" onsubmit="formSubmission()" method="POST" >
-          Number of Vaccinations Available: <input type="number" name="vaccinations_available" /> <br>
+          <label style="color:white;">Number of Vaccinations Available:</label> 
+          <input type="number" name="vaccinations_available" />
           <?php
           	$host = "host=db.geolive.co.za";
             $port = "port=5432";
@@ -71,7 +72,7 @@
         $result = pg_query($query);
       ?>
     </div>
-      <div class="box" style="height:395px; margin-top: 5px;">
+    <div class="box" style="height:445px; margin-top: 5px; border-style: ridge; border-width: 3px; border-radius: 8px; ; border-color: #006994;"> <!-- blue box with the table -->
         <style type="text/css">
             .tg  {border-collapse:collapse;border-color:#9ABAD9;border-spacing:0;}
             .tg td{background-color:#EBF5FF;border-color:#9ABAD9;border-style:solid;border-width:1px;color:#444;
@@ -80,8 +81,12 @@
               font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:3px 0px;word-break:normal;}
             .tg .tg-0lax{text-align:left;vertical-align:top}
             </style>
-            <table class="tg" style="table-layout: fixed;">
-
+            <table class="tg" style="table-layout: fixed; align:center;">
+            <colgroup>
+            <col style="width: 220px; padding:5px;">
+            <col style="width: 145px;">
+            <col style="width: 160px;">
+            </colgroup>
             <thead>
               <tr>
                 <th class="tg-0lax"><b>Health site</b></th>
@@ -92,7 +97,7 @@
             </thead>
             <tbody>
               <tr onmouseover="highlightcatchFeature(CL1)" onmouseout="resetcatchHighlight(CL1)">
-                <td class="tg-0lax" >Mahube Valley Pharmacy </td>
+                <td class="tg-0lax" >Mahube Valley Pharmacy</td>
                 <td class="tg-0lax">173,480</td>
                 <td class="tg-0lax">10451,107</td>
                 <td class="tg-0lax">XXXXXXXXXX</td>
