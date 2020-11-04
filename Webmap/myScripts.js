@@ -37,7 +37,7 @@ function highlightFeature(e){
 	var layer = e.target;
 	layer.setStyle(
 		{
-		weight: 5,
+		weight: 2,
 		color: 'yellow',
 		fillColor: 'yellow',
 		fillOpacity: 0.25
@@ -46,6 +46,25 @@ function highlightFeature(e){
 	if(!L.Browser.ie && !L.Browser.opera){
 		layer.bringToFront();
 	}
+}
+//function to highlight feature - CATCHMENT LAYER  				
+function highlightcatchFeature(lyr){
+	var layer = lyr;
+	layer.setStyle(
+		{
+		weight: 2,
+		color: 'yellow',
+		fillColor: 'yellow',
+		fillOpacity: 0.25
+		}
+	);
+	if(!L.Browser.ie && !L.Browser.opera){
+		layer.bringToFront();
+	}
+}
+//reset styles when mouse is off the CATCHMENT LAYER
+function resetcatchHighlight(lyr){
+    lyr.resetStyle();
 }
 //reset styles when mouse is off the ward
 function resetHighlight(e){
