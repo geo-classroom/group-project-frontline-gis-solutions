@@ -103,6 +103,25 @@ SrsName : 'EPSG:4326'
 var parameters = L.Util.extend(defaultParameters);
 var URL = owsrootUrl + L.Util.getParamString(parameters);
 var poi_polygonWFS = null;
+// highlighting the POI when over it  					
+function highlightPOI(e){
+	var layer = e.target;
+	layer.setStyle(
+		{
+		weight: 2,
+		color: '#00FFFF',
+		fillColor: 'red',
+		fillOpacity: 0.25
+		}
+	);
+	if(!L.Browser.ie && !L.Browser.opera){
+		layer.bringToFront();
+	}
+}
+//reset the highlights to original colours
+function resetHighlightPOI(e){
+		poi_polygonWFS.resetStyle(e.target);
+	}
 var ajax = $.ajax({
 url : URL,
 dataType : 'jsonp',
@@ -122,6 +141,13 @@ poi_polygonWFS = L.geoJson(response, {
     onEachFeature: function (feature, layer) {
         popupOptions = {maxWidth: 200};
         layer.bindPopup(`<b>${feature.properties.name}</b>`,popupOptions);
+	    //mouse hover functionality for highlighting POI
+	layer.on(												
+		{
+		mouseover : highlightPOI,
+		mouseout : resetHighlightPOI,		
+		}
+	);
     }
 });
 LC.addOverlay(poi_polygonWFS, "Places of Interest");
