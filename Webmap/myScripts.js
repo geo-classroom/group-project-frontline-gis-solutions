@@ -32,6 +32,29 @@ SrsName : 'EPSG:4326'
 var parameters = L.Util.extend(defaultParameters);
 var URL = owsrootUrl + L.Util.getParamString(parameters);
 var wardsWFS = null;
+//function to highlight feature - wards layer  				
+function highlightFeature(e){
+	var layer = e.target;
+	layer.setStyle(
+		{
+		weight: 5,
+		color: 'yellow',
+		fillColor: 'yellow',
+		fillOpacity: 0.25
+		}
+	);
+	if(!L.Browser.ie && !L.Browser.opera){
+		layer.bringToFront();
+	}
+}
+//reset styles when mouse is off the ward
+function resetHighlight(e){
+		wardsWFS.resetStyle(e.target);
+	}
+//zoom to the layer when it is clicked
+function zoomToFeature(e){
+		map.fitBounds(e.target.getBounds());
+	}
 var ajax = $.ajax({
 url : URL,
 dataType : 'jsonp',
@@ -54,6 +77,13 @@ wardsWFS = L.geoJson(response, {
         + "<br>" + "Population: " + feature.properties.population
         + "<br>" + "Households: " + feature.properties.households
             ,popupOptions);
+        layer.on(												//added: makes the hover and click function work
+		{
+		mouseover : highlightFeature,
+		mouseout : resetHighlight,
+		click : zoomToFeature
+		}
+	);
     }
 });
 LC.addOverlay(wardsWFS, "Wards");
