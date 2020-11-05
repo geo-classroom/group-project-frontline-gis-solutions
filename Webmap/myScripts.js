@@ -104,7 +104,7 @@ wardsWFS = L.geoJson(response, {
 		}
 	);
     }
-});
+}).addTo(map);
 LC.addOverlay(wardsWFS, "Wards");
 }
 });
@@ -427,10 +427,27 @@ function updateTable(vacc_avail){
     document.getElementById("CL11").innerHTML = mamelodi_west_clinic;
     document.getElementById("CL8").innerHTML = mamelodi_hospital_pharmacy;
     document.getElementById("CL12").innerHTML = mamelodi_hospital;
+    document.getElementById('vaccInput').value = "";
 }
 
 function formSubmission(){
     var vacc_avail = document.forms['calculator']['vaccinations_available'].value;
-    swal("Success!","See below for results", "success");
+    swal("Success!","The vaccinations have successfully been written to the database and are displayed in the table below.", "success");
     updateTable(vacc_avail);
 }
+
+$( "form" ).on( "submit", function(e) { 
+    var dataString = $(this).serialize();
+
+    $.ajax({
+        type: "POST",
+        url: "webmap.php",
+        data: dataString,
+        success: function() {
+            formSubmission();
+        }
+      });
+      return false;
+ 
+    e.preventDefault();
+  });

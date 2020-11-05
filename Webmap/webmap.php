@@ -30,40 +30,42 @@
       <div class="right">
       <div class="box" style="height:150px; border-style: ridge; border-width: 3px; border-radius: 8px; border-color: #006994;"> <!-- the blue box with input and submit button -->
       <h2 style="color:#FBBF4D;">Clinic Calculation Tool</h2>
-      <form name="calculator" action="webmap.php" onsubmit="formSubmission()" method="POST" >
-          <label style="color:white;">Number of Vaccinations Available:</label> 
-          <input id="vaccInput" type="number" name="vaccinations_available" />
-          <?php
-          	$host = "host=db.geolive.co.za";
-            $port = "port=5432";
-            $dbname = "dbname=FGS";
-            $credentials = "user=postgres password=T5YCzESQ3HPI";
-            $db = pg_connect("$host $port $dbname $credentials");
+      <div id="calculator_form">
+        <form name="calculator" action="" >
+            <label style="color:white;">Number of Vaccinations Available:</label> 
+            <input id="vaccInput" type="number" name="vaccinations_available" />
+            <?php
+              $host = "host=db.geolive.co.za";
+              $port = "port=5432";
+              $dbname = "dbname=FGS";
+              $credentials = "user=postgres password=T5YCzESQ3HPI";
+              $db = pg_connect("$host $port $dbname $credentials");
 
-            if(!$db) {echo('<p><img src="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/red-connect.png" style="height:20px; width:20px;">');} 
-            else {echo '<p><img src="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/green-connect.png" style="height:20px; width:20px;">';}
-          ?>
-          <input type="submit"/>
-      </form>
+              if(!$db) {echo('<p><img src="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/red-connect.png" style="height:20px; width:20px;">');} 
+              else {echo '<p><img src="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/green-connect.png" style="height:20px; width:20px;">';}
+            ?>
+            <input type="submit" id="submit_btn" value="Calculate"/>
+        </form>
+      </div>
       <?php
         $vac_avail = $_POST['vaccinations_available'];
         
-        $mahube_valley_pharmacy = 0.02848  * $vac_avail;
-        $hospital = 0.06719 * $vac_avail;
-        $dischem_mams_mall = 0.03641* $vac_avail;
-        $stanza_bopape_chc = 0.08662* $vac_avail;
-        $stanza_2_clinic = 0.08141* $vac_avail;
-        $tshepong_pharmacy = 0.06488* $vac_avail;
-        $holani_clinic = 0.05474* $vac_avail;
-        $mamelodi_hospital_pharmacy = 0.09192* $vac_avail;
-        $khutsong_pharmacy = 0.0334* $vac_avail;
-        $ame_pharmacy = 0.08698* $vac_avail;
-        $mamelodi_west_clinic = 0.08746* $vac_avail;
-        $mamelodi_hospital = 0.0222* $vac_avail;
-        $phahameng_clinic = 0.07575* $vac_avail;
-        $maruke_pharmacy_mamelodi_gardens = 0.06542* $vac_avail;
-        $mamelodi_east_clinic = 0.06174* $vac_avail;
-        $lusaka_clinic = 0.0554* $vac_avail;
+        $mahube_valley_pharmacy = round(0.02848  * $vac_avail);
+        $hospital = round(0.06719 * $vac_avail);
+        $dischem_mams_mall = round(0.03641* $vac_avail);
+        $stanza_bopape_chc = round(0.08662* $vac_avail);
+        $stanza_2_clinic = round(0.08141* $vac_avail);
+        $tshepong_pharmacy = round(0.06488* $vac_avail);
+        $holani_clinic = round(0.05474* $vac_avail);
+        $mamelodi_hospital_pharmacy = round(0.09192* $vac_avail);
+        $khutsong_pharmacy = round(0.0334* $vac_avail);
+        $ame_pharmacy = round(0.08698* $vac_avail);
+        $mamelodi_west_clinic = round(0.08746* $vac_avail);
+        $mamelodi_hospital = round(0.0222* $vac_avail);
+        $phahameng_clinic = round(0.07575* $vac_avail);
+        $maruke_pharmacy_mamelodi_gardens = round(0.06542* $vac_avail);
+        $mamelodi_east_clinic = round(0.06174* $vac_avail);
+        $lusaka_clinic = round(0.0554* $vac_avail);
         if(is_numeric($vac_avail))
         {
           $query = "INSERT INTO clinic_weights VALUES ('$_POST[vaccinations_available]','$mahube_valley_pharmacy','$hospital','$dischem_mams_mall','$stanza_bopape_chc',
