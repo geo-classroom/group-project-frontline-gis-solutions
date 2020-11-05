@@ -32,7 +32,8 @@ SrsName : 'EPSG:4326'
 var parameters = L.Util.extend(defaultParameters);
 var URL = owsrootUrl + L.Util.getParamString(parameters);
 var wardsWFS = null;
-//function to highlight feature - wards layer  				
+
+//Highlight WARDS 				
 function highlightFeature(e){
 	var layer = e.target;
 	layer.setStyle(
@@ -47,7 +48,8 @@ function highlightFeature(e){
 		layer.bringToFront();
 	}
 }
-//function to highlight feature - CATCHMENT LAYER  				
+
+//Hightlight CATCHMENT AREAS 				
 function highlightcatchFeature(lyr){
 	var layer = lyr;
 	layer.setStyle(
@@ -69,11 +71,14 @@ function resetcatchHighlight(lyr){
 //reset styles when mouse is off the ward
 function resetHighlight(e){
 		wardsWFS.resetStyle(e.target);
-	}
+    }
 //zoom to the layer when it is clicked
 function zoomToFeature(e){
 		map.fitBounds(e.target.getBounds());
-	}
+    }
+
+
+//Wards WFS Layer    
 var ajax = $.ajax({
 url : URL,
 dataType : 'jsonp',
@@ -168,7 +173,7 @@ poi_polygonWFS = L.geoJson(response, {
 		}
 	);
     }
-});
+}).addTo(map);
 LC.addOverlay(poi_polygonWFS, "Places of Interest");
 }
 });
@@ -205,10 +210,16 @@ success : function (response) {
             return L.marker(latlng, {icon: healthsiteIcon, pane:'hs'});
         },
         onEachFeature: function (feature, layer) {
-        popupOptions = {maxWidth: 200};
-        layer.bindPopup("<b>" + feature.properties.health_f_1
-        + "</b>",popupOptions);
-    }
+            popupOptions = {maxWidth: 200};
+            layer.bindPopup("<b>" + feature.properties.health_f_1
+            + "</b>",popupOptions);
+            layer.on('mouseover', function(e){
+                this.openPopup();
+            });
+            layer.on('mouseout', function (e) {
+                this.closePopup();
+            });
+        }
     }).addTo(map);
     LC.addOverlay(healthsitesWFS, "Healthsites");
 }

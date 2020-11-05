@@ -93,9 +93,9 @@
             </colgroup>
             <thead>
               <tr>
-                <th class="tg-0lax"><b>Health site</b></th>
-                <th class="tg-0lax"><b>Catchment area (Ha)</b></th>
-                <th class="tg-0lax"><b>Population served</b></th>
+                <th class="tg-0lax"><b>Healthsite</b></th>
+                <th class="tg-0lax"><b>Catchment Area (Ha)</b></th>
+                <th class="tg-0lax"><b>Population Served</b></th>
                 <th class="tg-0lax"><b>Vaccines Allocated</b></th>
               </tr>
             </thead>
