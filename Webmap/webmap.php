@@ -144,8 +144,8 @@
                 <td class="tg-0lax">24010,015</td>
                 <td class="tg-0lax" id="CL14">XXXXXXXXXX</td>
               </tr>
-              <tr onmouseover="highlightcatchFeature(CL12)" onmouseout="resetcatchHighlight(CL12)">
-                <td class="tg-0lax">Mamelodi Hospital</td>
+              <tr onmouseover="highlightcatchFeature(CL2)" onmouseout="resetcatchHighlight(CL2)">
+                <td class="tg-0lax">Hospital</td>
                 <td class="tg-0lax">266,388</td>
                 <td class="tg-0lax">24659,188</td>
                 <td class="tg-0lax" id="CL12">XXXXXXXXXX</td>
