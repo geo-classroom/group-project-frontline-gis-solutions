@@ -393,7 +393,44 @@ L.control.mousePosition = function (options) {
 
 L.control.mousePosition().addTo(map);
 
+function updateTable(vacc_avail){
+    var mahube_valley_pharmacy = 0.02848  * vacc_avail;
+    var hospital = 0.06719 * vacc_avail;
+    var dischem_mams_mall = 0.03641 * vacc_avail;
+    var stanza_bopape_chc = 0.08662 * vacc_avail;
+    var stanza_2_clinic = 0.08141 * vacc_avail;
+    var tshepong_pharmacy = 0.06488 * vacc_avail;
+    var holani_clinic = 0.05474 * vacc_avail;
+    var mamelodi_hospital_pharmacy = 0.09192 * vacc_avail;
+    var khutsong_pharmacy = 0.0334 * vacc_avail;
+    var ame_pharmacy = 0.08698 * vacc_avail;
+    var mamelodi_west_clinic = 0.08746 * vacc_avail;
+    var mamelodi_hospital = 0.0222 * vacc_avail;
+    var phahameng_clinic = 0.07575 * vacc_avail;
+    var maruke_pharmacy_mamelodi_gardens = 0.06542 * vacc_avail;
+    var mamelodi_east_clinic = 0.06174 * vacc_avail;
+    var lusaka_clinic = 0.0554 * vacc_avail;
+
+    document.getElementById("CL1").innerHTML = mahube_valley_pharmacy;
+    document.getElementById("CL9").innerHTML = khutsong_pharmacy;
+    document.getElementById("CL3").innerHTML = dischem_mams_mall;
+    document.getElementById("CL7").innerHTML = holani_clinic;
+    document.getElementById("CL16").innerHTML = lusaka_clinic;
+    document.getElementById("CL15").innerHTML = mamelodi_east_clinic;
+    document.getElementById("CL6").innerHTML = tshepong_pharmacy;
+    document.getElementById("CL12").innerHTML = mamelodi_hospital;
+    document.getElementById("CL13").innerHTML = phahameng_clinic;
+    document.getElementById("CL5").innerHTML = stanza_2_clinic;
+    document.getElementById("CL4").innerHTML = stanza_bopape_chc;
+    document.getElementById("CL10").innerHTML = ame_pharmacy;
+    document.getElementById("CL11").innerHTML = mamelodi_west_clinic;
+    document.getElementById("CL8").innerHTML = mamelodi_hospital_pharmacy;
+    document.getElementById("CL2").innerHTML = hospital;
+
+}
+
 function formSubmission(){
-    var x = document.forms['calculator']['vaccinations_available'].value;
+    var vacc_avail = document.forms['calculator']['vaccinations_available'].value;
     swal("Success!","See below for results", "success");
+    updateTable(vacc_avail);
 }
