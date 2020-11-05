@@ -104,7 +104,7 @@ wardsWFS = L.geoJson(response, {
 		}
 	);
     }
-});
+}).addTo(map);
 LC.addOverlay(wardsWFS, "Wards");
 }
 });
@@ -432,10 +432,9 @@ function updateTable(vacc_avail){
 
 function formSubmission(){
     var vacc_avail = document.forms['calculator']['vaccinations_available'].value;
-    swal("Success!","See below for results", "success");
+    swal("Success!","The vaccinations have successfully been written to the database and are displayed in the table below.", "success");
     updateTable(vacc_avail);
 }
-
 
 $( "form" ).on( "submit", function(e) { 
     var dataString = $(this).serialize();
