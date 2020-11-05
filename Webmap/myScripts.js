@@ -351,7 +351,7 @@ L.Control.MousePosition = L.Control.extend({
     numDigits: 5,
     lngFormatter: undefined,
     latFormatter: undefined,
-    prefix: "Coordinates <br>" //in front of coordinates
+    prefix: " " //in front of coordinates. Removed perfix.
   },
 
   onAdd: function (map) {
