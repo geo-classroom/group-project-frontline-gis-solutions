@@ -32,7 +32,7 @@
       <h2 style="color:#FBBF4D;">Clinic Calculation Tool</h2>
       <form name="calculator" action="webmap.php" onsubmit="formSubmission()" method="POST" >
           <label style="color:white;">Number of Vaccinations Available:</label> 
-          <input type="number" name="vaccinations_available" />
+          <input id="vaccInput" type="number" name="vaccinations_available" />
           <?php
           	$host = "host=db.geolive.co.za";
             $port = "port=5432";
