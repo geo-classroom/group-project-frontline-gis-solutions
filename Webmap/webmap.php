@@ -19,7 +19,7 @@
         <tr>
             <td style="width:300px"><a href="https://frontlinegissol.wixsite.com/home"><img src="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/FrontlineGIS_Logo.png" width="auto" height="100" href="https://www.qries.com/"></a></td>
             <td style="background-color:#195E83; width:100%;">
-                <h1 style="color:#FBBF4D;"><u>Mapping Mamelodi Healthsites to Optimize Covid-19 Vaccine Distribution</u></h1>
+                <h1 style="color:#FFA500; align:center; font-size:30px;"><b>Mapping Mamelodi Healthsites to Optimize Covid-19 Vaccine Distribution<b></h1>
             </td>
         </tr>
     </table>
@@ -46,23 +46,25 @@
           <input type="submit"/>
       </form>
       <?php
-        $mahube_valley_pharmacy = 0.02848  * $_POST[vaccinations_available];
-        $hospital = 0.06719 * $_POST[vaccinations_available];
-        $dischem_mams_mall = 0.03641* $_POST[vaccinations_available];
-        $stanza_bopape_chc = 0.08662* $_POST[vaccinations_available];
-        $stanza_2_clinic = 0.08141* $_POST[vaccinations_available];
-        $tshepong_pharmacy = 0.06488* $_POST[vaccinations_available];
-        $holani_clinic = 0.05474* $_POST[vaccinations_available];
-        $mamelodi_hospital_pharmacy = 0.09192* $_POST[vaccinations_available];
-        $khutsong_pharmacy = 0.0334* $_POST[vaccinations_available];
-        $ame_pharmacy = 0.08698* $_POST[vaccinations_available];
-        $mamelodi_west_clinic = 0.08746* $_POST[vaccinations_available];
-        $mamelodi_hospital = 0.0222* $_POST[vaccinations_available];
-        $phahameng_clinic = 0.07575* $_POST[vaccinations_available];
-        $maruke_pharmacy_mamelodi_gardens = 0.06542* $_POST[vaccinations_available];
-        $mamelodi_east_clinic = 0.06174* $_POST[vaccinations_available];
-        $lusaka_clinic = 0.0554* $_POST[vaccinations_available];
-        if(is_numeric($_POST[vaccinations_available]))
+        $vac_avail = $_POST['vaccinations_available'];
+        
+        $mahube_valley_pharmacy = 0.02848  * $vac_avail;
+        $hospital = 0.06719 * $vac_avail;
+        $dischem_mams_mall = 0.03641* $vac_avail;
+        $stanza_bopape_chc = 0.08662* $vac_avail;
+        $stanza_2_clinic = 0.08141* $vac_avail;
+        $tshepong_pharmacy = 0.06488* $vac_avail;
+        $holani_clinic = 0.05474* $vac_avail;
+        $mamelodi_hospital_pharmacy = 0.09192* $vac_avail;
+        $khutsong_pharmacy = 0.0334* $vac_avail;
+        $ame_pharmacy = 0.08698* $vac_avail;
+        $mamelodi_west_clinic = 0.08746* $vac_avail;
+        $mamelodi_hospital = 0.0222* $vac_avail;
+        $phahameng_clinic = 0.07575* $vac_avail;
+        $maruke_pharmacy_mamelodi_gardens = 0.06542* $vac_avail;
+        $mamelodi_east_clinic = 0.06174* $vac_avail;
+        $lusaka_clinic = 0.0554* $vac_avail;
+        if(is_numeric($vac_avail))
         {
           $query = "INSERT INTO clinic_weights VALUES ('$_POST[vaccinations_available]','$mahube_valley_pharmacy','$hospital','$dischem_mams_mall','$stanza_bopape_chc',
           '$stanza_2_clinic','$tshepong_pharmacy','$holani_clinic','$mamelodi_hospital_pharmacy','$khutsong_pharmacy','$ame_pharmacy','$mamelodi_west_clinic',
@@ -148,7 +150,7 @@
                 <td class="tg-0lax">Hospital</td>
                 <td class="tg-0lax">266,388</td>
                 <td class="tg-0lax">24659,188</td>
-                <td class="tg-0lax" id="CL12">XXXXXXXXXX</td>
+                <td class="tg-0lax" id="CL2">XXXXXXXXXX</td>
               </tr>
               <tr onmouseover="highlightcatchFeature(CL13)" onmouseout="resetcatchHighlight(CL13)">
                 <td class="tg-0lax">Phahameng Clinic</td>
@@ -178,13 +180,13 @@
                 <td class="tg-0lax">Mamelodi West Clinic</td>
                 <td class="tg-0lax">372,875</td>
                 <td class="tg-0lax">32099,034</td>
-                <td class="tg-0lax" id="calc_value">XXXXXXXXXX</td>
+                <td class="tg-0lax" id="CL11">XXXXXXXXXX</td>
               </tr>
               <tr onmouseover="highlightcatchFeature(CL8)" onmouseout="resetcatchHighlight(CL8)">
                 <td class="tg-0lax">Mamelodi Hospital Pharmacy </td>
                 <td class="tg-0lax">409,899</td>
                 <td class="tg-0lax">33735,648</td>
-                <td class="tg-0lax" id="CL11">XXXXXXXXXX</td>
+                <td class="tg-0lax" id="CL8">XXXXXXXXXX</td>
               </tr>
               <tr onmouseover="highlightcatchFeature(CL12)" onmouseout="resetcatchHighlight(CL12)">
                 <td class="tg-0lax">Mamelodi Hospital </td>
