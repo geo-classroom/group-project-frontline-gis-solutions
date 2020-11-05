@@ -427,11 +427,8 @@ function updateTable(vacc_avail){
     document.getElementById("CL11").innerHTML = mamelodi_west_clinic;
     document.getElementById("CL8").innerHTML = mamelodi_hospital_pharmacy;
     document.getElementById("CL12").innerHTML = mamelodi_hospital;
-<<<<<<< HEAD
     document.getElementById("CLtotal").innerHTML = vacc_avail;
-=======
     document.getElementById('vaccInput').value = "";
->>>>>>> 54f91eb538953fe4c37b6f8fcd8136fa87b77f7a
 }
 
 function formSubmission(){
