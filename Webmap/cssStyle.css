@@ -1,0 +1,13 @@
+/* set z-index for the style */
+#map {
+	z-index: 5;
+}
+
+.leaflet-container .leaflet-control-mouseposition {
+  background-color: #d3d3d3;
+  box-shadow: 0 0 5px #bbb;
+  padding: 0 5px;
+  margin: 0;
+  color: #333;
+  font: 11px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
