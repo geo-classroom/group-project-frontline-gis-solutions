@@ -438,8 +438,15 @@ function updateTable(vacc_avail){
     document.getElementById("CL11").innerHTML = mamelodi_west_clinic;
     document.getElementById("CL8").innerHTML = mamelodi_hospital_pharmacy;
     document.getElementById("CL12").innerHTML = mamelodi_hospital;
-    document.getElementById("CLtotal").innerHTML = vacc_avail;
+    document.getElementById("CLtotal").innerHTML = "<b>" + vacc_avail.toString() +"</b>";
     document.getElementById('vaccInput').value = "";
+    document.getElementById('CLtotal').style.textDecoration = "bold";
+    if(vacc_avail<367014){
+        document.getElementById('CLtotal').style.backgroundColor = "red";
+    }
+    else{
+        document.getElementById('CLtotal').style.backgroundColor = "green";
+    }
 }
 
 function formSubmission(){
@@ -468,3 +475,19 @@ $( "form" ).on( "submit", function(e) {
  
     e.preventDefault();
   });
+
+  tippy('#vaccInput',{
+      content: 'Insert number of vaccinations available for distribution here.'
+  });
+  tippy('#submit_btn',{
+    content: 'Click the button to calculate how the available vaccinations should be weigheted for each ward.'
+});
+tippy('#connected',{
+    content: 'Database successfully connected!.'
+});
+tippy('#disconnected',{
+    content: 'There was an issue connecting to the database.'
+});
+tippy('#CLtotal',{
+    content: 'If this is green there are enough vaccinations availabl for the population. If this is read there is not sufficient vaccinations available.'
+});

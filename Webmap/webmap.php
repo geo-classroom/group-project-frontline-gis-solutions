@@ -42,15 +42,14 @@
               $credentials = "user=postgres password=T5YCzESQ3HPI";
               $db = pg_connect("$host $port $dbname $credentials");
 
-              if(!$db) {echo('<p><img src="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/red-connect.png" style="height:20px; width:20px;">');} 
-              else {echo '<p><img src="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/green-connect.png" style="height:20px; width:20px;">';}
+              if(!$db) {echo('<p ><img id="disconnected" src="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/red-connect.png" style="height:20px; width:20px;">');} 
+              else {echo '<p ><img id="connected" src="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/green-connect.png" style="height:20px; width:20px;">';}
             ?>
             <input type="submit" id="submit_btn" value="Calculate" class="myButton"/>
         </form>
       </div>
       <?php
         $vac_avail = $_POST['vaccinations_available'];
-        
         $mahube_valley_pharmacy = round(0.02848  * $vac_avail);
         $hospital = round(0.06719 * $vac_avail);
         $dischem_mams_mall = round(0.03641* $vac_avail);
@@ -210,7 +209,10 @@
     </div>
     </div>
   </div>
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
 <script src="myScripts.js"></script>
+
 	
 </body>
 </html>
