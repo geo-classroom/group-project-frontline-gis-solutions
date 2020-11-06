@@ -445,7 +445,6 @@ function updateTable(vacc_avail){
     document.getElementById("CL12").innerHTML = mamelodi_hospital;
     document.getElementById("CLtotal").innerHTML = "<b>" + vacc_avail.toString() +"</b>";
     document.getElementById('vaccInput').value = "";
-    document.getElementById('CLtotal').style.textDecoration = "bold";
     document.getElementById('CLtotal').style.color = "white";
     if(vacc_avail<367014){
         document.getElementById('CLtotal').style.backgroundColor = "red";
