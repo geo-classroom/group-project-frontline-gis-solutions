@@ -355,14 +355,14 @@ L.control.layers.tree(null, overlaysTree,{collapsed:false}).addTo(map);
 // add coordinates with mouse movement to the bottom right of the map												
 L.Control.MousePosition = L.Control.extend({
   options: {
-    position: 'bottomright', // position for the coordinates on the map
+    position: 'bottomleft', // position for the coordinates on the map
     separator: ' : ', // separates the coordinates
     emptyString: ' ', //start string before any movement of the mouse on map
     lngFirst: false, // ordering lat and long display
     numDigits: 5,
     lngFormatter: undefined,
     latFormatter: undefined,
-    prefix: " " //in front of coordinates. Removed perfix.
+    prefix: "Coordinate: " //in front of coordinates
   },
 
   onAdd: function (map) {
