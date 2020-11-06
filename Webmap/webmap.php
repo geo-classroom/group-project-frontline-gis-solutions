@@ -107,7 +107,7 @@
                 <td class="tg-0lax">Mamelodi Hospital Pharmacy </td>
                 <td class="tg-0lax">409.90</td>
                 <td class="tg-0lax">33 736</td>
-                <td class="tg-0lax">---</td>
+                <td class="tg-0lax" id="CL8">---</td>
               </tr>
               <tr onmouseover="highlightcatchFeature(CL11)" onmouseout="resetcatchHighlight(CL11)">
                 <td class="tg-0lax">Mamelodi West Clinic</td>
