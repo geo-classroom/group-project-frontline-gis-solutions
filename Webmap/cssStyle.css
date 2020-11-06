@@ -58,3 +58,7 @@ div.input-box input {
 .custom-popup .leaflet-popup-close-button{
 	display: none;
 }
+.custom-popup .leaflet-popup-content{
+	margin: 2px 7px;
+    line-height: 1.395;
+}
