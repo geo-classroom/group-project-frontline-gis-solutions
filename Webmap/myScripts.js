@@ -62,7 +62,7 @@ function highlightcatchFeature(lyr){
 	);
 	if(!L.Browser.ie && !L.Browser.opera){
 		layer.bringToFront();
-	}
+    }
 }
 //reset styles when mouse is off the CATCHMENT LAYER
 function resetcatchHighlight(lyr){
