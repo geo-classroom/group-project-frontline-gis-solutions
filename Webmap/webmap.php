@@ -103,7 +103,7 @@
               </tr>
             </thead>
             <tbody>
-            <tr id="row8" onmouseover="highlightcatchFeature(CL8)" onmouseout="resetcatchHighlight(CL8)">
+            <tr onmouseover="highlightcatchFeature(CL8)" onmouseout="resetcatchHighlight(CL8)">
                 <td class="tg-0lax">Mamelodi Hospital Pharmacy </td>
                 <td class="tg-0lax">409.90</td>
                 <td class="tg-0lax">33 736</td>
