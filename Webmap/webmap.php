@@ -84,16 +84,18 @@
               font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:3px 0px;word-break:normal;}
             .tg th{background-color:#409cff;border-color:#9ABAD9;border-style:solid;border-width:1px;color:#fff;
               font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:3px 0px;word-break:normal;}
-            .tg .tg-0lax{text-align:left;vertical-align:top}
+            .tg .tg-0lax{text-align:left;vertical-align:top; background-color:transparent;}
+            .tg tr:hover{background-color:white;}
+            .tg tr{background:#b9dceb;}
             </style>
-            <table class="tg" style="table-layout: fixed; align:center;">
+            <table class="tg" style="table-layout: fixed; align:center;" id="myTable">
             <colgroup>
             <col style="width: 220px; padding:5px;">
             <col style="width: 145px;">
             <col style="width: 160px;">
             </colgroup>
             <thead>
-              <tr>
+              <tr style="background:#409cff;">
                 <th class="tg-0lax"><b>Healthsite</b></th>
                 <th class="tg-0lax"><b>Catchment Area (Ha)</b></th>
                 <th class="tg-0lax"><b>Population Served</b></th>
@@ -101,11 +103,11 @@
               </tr>
             </thead>
             <tbody>
-            <tr onmouseover="highlightcatchFeature(CL8)" onmouseout="resetcatchHighlight(CL8)">
+            <tr id="row8" onmouseover="highlightcatchFeature(CL8)" onmouseout="resetcatchHighlight(CL8)">
                 <td class="tg-0lax">Mamelodi Hospital Pharmacy </td>
                 <td class="tg-0lax">409.90</td>
                 <td class="tg-0lax">33 736</td>
-                <td class="tg-0lax" id="CL8">---</td>
+                <td class="tg-0lax">---</td>
               </tr>
               <tr onmouseover="highlightcatchFeature(CL11)" onmouseout="resetcatchHighlight(CL11)">
                 <td class="tg-0lax">Mamelodi West Clinic</td>
