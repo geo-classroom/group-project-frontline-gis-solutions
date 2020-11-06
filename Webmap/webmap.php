@@ -46,7 +46,6 @@
               else {echo '<p><img src="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/green-connect.png" style="height:20px; width:20px;">';}
             ?>
             <input type="submit" id="submit_btn" value="Calculate" class="myButton"/>
-            <a href="#" class="myButton">Calculate</a>
         </form>
       </div>
       <?php

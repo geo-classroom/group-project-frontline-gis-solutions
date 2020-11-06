@@ -444,8 +444,13 @@ function updateTable(vacc_avail){
 
 function formSubmission(){
     var vacc_avail = document.forms['calculator']['vaccinations_available'].value;
-    swal("Success!","The vaccinations have successfully been written to the database and are displayed in the table below.", "success");
-    updateTable(vacc_avail);
+    if(vacc_avail == ""){
+        swal("Error!","Please input a value before the calculation can take place.", "warning");
+    }
+    else{
+        swal("Success!","The vaccinations have successfully been written to the database and are displayed in the table below.", "success");
+        updateTable(vacc_avail);
+    }
 }
 
 $( "form" ).on( "submit", function(e) { 
