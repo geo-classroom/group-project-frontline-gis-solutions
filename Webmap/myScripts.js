@@ -438,8 +438,15 @@ function updateTable(vacc_avail){
     document.getElementById("CL11").innerHTML = mamelodi_west_clinic;
     document.getElementById("CL8").innerHTML = mamelodi_hospital_pharmacy;
     document.getElementById("CL12").innerHTML = mamelodi_hospital;
-    document.getElementById("CLtotal").innerHTML = vacc_avail;
+    document.getElementById("CLtotal").innerHTML = "<b>" + vacc_avail.toString() +"</b>";
     document.getElementById('vaccInput').value = "";
+    document.getElementById('CLtotal').style.textDecoration = "bold";
+    if(vacc_avail<367014){
+        document.getElementById('CLtotal').style.backgroundColor = "red";
+    }
+    else{
+        document.getElementById('CLtotal').style.backgroundColor = "green";
+    }
 }
 
 function formSubmission(){

@@ -50,7 +50,6 @@
       </div>
       <?php
         $vac_avail = $_POST['vaccinations_available'];
-        
         $mahube_valley_pharmacy = round(0.02848  * $vac_avail);
         $hospital = round(0.06719 * $vac_avail);
         $dischem_mams_mall = round(0.03641* $vac_avail);
