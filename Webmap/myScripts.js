@@ -3,9 +3,9 @@ var map = L.map('map').setView([-25.709286, 28.390506], 13.4);
 
 //Define Basemaps
 var mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
-var OSM = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution: '&copy; ' + '<a href="http://openstreetmap.org">OpenStreetMap</a>' + ' Contributors',maxZoom: 18,});
-var GOOGLESAT = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{attribution: '&copy; ' + '<a href="https://www.google.com/earth/">Google Earth</a>' + ' Contributors',maxZoom: 18,});
-var CUSTOM = L.tileLayer('https://api.mapbox.com/styles/v1/nicholasdk/ckgl6yzhd1y7v19lsm74n4324/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibmljaG9sYXNkayIsImEiOiJjazB1dmRsZ24wbTAzM2pxcHo4N3d1aml1In0.v4FF5wiPpmyg5rrnq23kIg',{attribution: '&copy; ' + '<a href="https://www.mapbox.com/">Mapbox</a>' + ' Contributors',maxZoom: 18,}).addTo(map);
+var OSM = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution: '&copy; ' + '<a href="http://openstreetmap.org" target="_blank">OpenStreetMap</a>' + ' Contributors',maxZoom: 18,});
+var GOOGLESAT = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{attribution: '&copy; ' + '<a href="https://www.google.com/earth/" target="_blank">Google Earth</a>' + ' Contributors',maxZoom: 18,});
+var CUSTOM = L.tileLayer('https://api.mapbox.com/styles/v1/nicholasdk/ckgl6yzhd1y7v19lsm74n4324/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibmljaG9sYXNkayIsImEiOiJjazB1dmRsZ24wbTAzM2pxcHo4N3d1aml1In0.v4FF5wiPpmyg5rrnq23kIg',{attribution: '&copy; ' + '<a href="https://www.mapbox.com/" target="_blank">Mapbox</a>' + ' Contributors',maxZoom: 18,}).addTo(map);
 
 function getColor(d) {
 return d > 17000 ? '#606062' :
