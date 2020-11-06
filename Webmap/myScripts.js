@@ -77,6 +77,8 @@ function zoomToFeature(e){
 		map.fitBounds(e.target.getBounds());
     }
 
+//make variable for popup style: WARDS
+var popup = L.popup({className: "custom-popup"});
 
 //Wards WFS Layer    
 var ajax = $.ajax({
@@ -96,7 +98,7 @@ wardsWFS = L.geoJson(response, {
         };
     },
     onEachFeature: function (feature, layer) {
-        popupOptions = {maxWidth: 200};
+        popupOptions = {maxWidth: 200, className: "custom-popup"};
         layer.bindPopup("<b>" + feature.properties.name + "</b>"
         + "<br>" + "Population: " + feature.properties.population
         + "<br>" + "Households: " + feature.properties.households
