@@ -491,3 +491,33 @@ tippy('#disconnected',{
 tippy('#CLtotal',{
     content: 'If this is green there are enough vaccinations availabl for the population. If this is read there is not sufficient vaccinations available.'
 });
+
+
+
+document.getElementById('download_btn').addEventListener('click',
+  exportPDF);
+
+var specialElementHandlers = {
+  // element with id of "bypass" - jQuery style selector
+  '.no-export': function(element, renderer) {
+    // true = "handled elsewhere, bypass text extraction"
+    return true;
+  }
+};
+
+function exportPDF(){
+    var doc = new JsPDF('p','pt','letter')
+    console.log(document.getElementById('myTable').innerHTML)
+    doc.fromHTML(document.getElementById('myTable').innerHTML, 1, 1, {
+      elementHandlers: function() {
+        return true
+      }
+    }, function() {
+      doc.save('test')
+    })
+
+    /*const doc = new jsPDF()
+    doc.autoTable({ html: 'myTable' })
+    doc.save('table.pdf')*/
+  }
+  

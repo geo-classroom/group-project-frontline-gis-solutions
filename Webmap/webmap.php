@@ -13,6 +13,7 @@
     <script src="../Webmap/L.Control.Layers.Tree.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
 </head>
 
 <body style="background-image: url('https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/background.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%;">
@@ -46,6 +47,7 @@
               else {echo '<p ><img id="connected" src="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/green-connect.png" style="height:20px; width:20px;">';}
             ?>
             <input type="submit" id="submit_btn" value="Calculate" class="myButton"/>
+            <input type="button" id="download_btn" value="Download Table" class="myButton"/>
         </form>
       </div>
       <?php
@@ -209,8 +211,13 @@
     </div>
     </div>
   </div>
+
+  
 <script src="https://unpkg.com/@popperjs/core@2"></script>
 <script src="https://unpkg.com/tippy.js@6"></script>
+<script src="jspdf.plugin.autotable.js"></script>
+<script src="jspdf.plugin.autotable.min.js"></script>
+ 
 <script src="myScripts.js"></script>
 
 	
