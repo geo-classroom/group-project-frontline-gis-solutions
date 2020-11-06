@@ -475,3 +475,19 @@ $( "form" ).on( "submit", function(e) {
  
     e.preventDefault();
   });
+
+  tippy('#vaccInput',{
+      content: 'Insert number of vaccinations available for distribution here.'
+  });
+  tippy('#submit_btn',{
+    content: 'Click the button to calculate how the available vaccinations should be weigheted for each ward.'
+});
+tippy('#connected',{
+    content: 'Database successfully connected!.'
+});
+tippy('#disconnected',{
+    content: 'There was an issue connecting to the database.'
+});
+tippy('#CLtotal',{
+    content: 'If this is green there are enough vaccinations availabl for the population. If this is read there is not sufficient vaccinations available.'
+});
