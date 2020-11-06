@@ -45,7 +45,7 @@
               if(!$db) {echo('<p><img src="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/red-connect.png" style="height:20px; width:20px;">');} 
               else {echo '<p><img src="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/green-connect.png" style="height:20px; width:20px;">';}
             ?>
-            <input type="submit" id="submit_btn" value="Calculate"/>
+            <input type="submit" id="submit_btn" value="Calculate" class="myButton"/>
         </form>
       </div>
       <?php
