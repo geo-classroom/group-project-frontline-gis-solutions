@@ -41,3 +41,20 @@ div.input-box input {
 	position:relative;
 	top:1px;
 }
+
+/* POPUP style*/
+/* making wards popup seethough*/
+.custom-popup .leaflet-popup-content-wrapper {
+	border-radius: 12px;
+	background:grey;
+	color: white;
+	font-size:18px;
+	box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+}
+.custom-popup .leaflet-popup-tip{
+	background:#3d4849;
+	box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+}
+.custom-popup .leaflet-popup-close-button{
+	display: none;
+}
