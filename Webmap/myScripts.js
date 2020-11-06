@@ -116,6 +116,9 @@ LC.addOverlay(wardsWFS, "Wards");
 }
 });
 
+//make variable for popup style: POI
+var popup = L.popup({className: "poi-popup"});
+
 //POI_polygons Layer
 var defaultParameters = {
 service : 'WFS',
@@ -165,7 +168,7 @@ poi_polygonWFS = L.geoJson(response, {
         };
     },
     onEachFeature: function (feature, layer) {
-        popupOptions = {maxWidth: 200};
+        popupOptions = {maxWidth: 200, className: "poi-popup"};
         layer.bindPopup(`<b>${feature.properties.name}</b>`,popupOptions);
 	    //mouse hover functionality for highlighting POI
 	layer.on(												
