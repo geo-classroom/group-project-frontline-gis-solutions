@@ -43,7 +43,7 @@ div.input-box input {
 }
 
 /* POPUP style*/
-/* making wards popup seethough*/
+/*wards popup style*/
 .custom-popup .leaflet-popup-content-wrapper {
 	border-radius: 12px;
 	background:grey;
@@ -59,6 +59,26 @@ div.input-box input {
 	display: none;
 }
 .custom-popup .leaflet-popup-content{
+	margin: 2px 7px;
+    line-height: 1.395;
+}
+
+/*POI's popup style*/
+.poi-popup .leaflet-popup-content-wrapper {
+	border-radius: 12px;
+	background: #ffa500;
+	color: white;
+	font-size:14px;
+	box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+}
+.poi-popup .leaflet-popup-tip{
+	background:#f75316;
+	box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+}
+.poi-popup .leaflet-popup-close-button{
+	display: none;
+}
+.poi-popup .leaflet-popup-content{
 	margin: 2px 7px;
     line-height: 1.395;
 }
