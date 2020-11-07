@@ -171,12 +171,16 @@ poi_polygonWFS = L.geoJson(response, {
         popupOptions = {maxWidth: 200, className: "poi-popup"};
         layer.bindPopup(`<b>${feature.properties.name}</b>`,popupOptions);
 	    //mouse hover functionality for highlighting POI
-	layer.on(												
-		{
+	layer.on({
 		mouseover : highlightPOI,
 		mouseout : resetHighlightPOI,		
-		}
-	);
+		});
+	layer.on('click', function(e){
+                this.openPopup();
+            	});												
+	layer.on('mouseout', function (e) {
+      		this.closePopup();
+   		 });
     }
 }).addTo(map);
 LC.addOverlay(poi_polygonWFS, "Places of Interest");
