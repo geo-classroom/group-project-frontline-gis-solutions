@@ -496,6 +496,9 @@ $( "form" ).on( "submit", function(e) {
   tippy('#submit_btn',{
     content: 'Click this button to calculate how the available vaccinations should be weigheted for each ward.'
 });
+tippy('#download_btn',{
+    content: 'Click this button to download the table below as a CSV file.'
+});
 tippy('#connected',{
     content: 'Database successfully connected!'
 });
@@ -505,3 +508,21 @@ tippy('#disconnected',{
 tippy('#CLtotal',{
     content: 'If this is green there are enough vaccinations available for the population. If this is red there is not sufficient vaccinations available.'
 });
+
+function exportCSV(){
+    let options = {
+        "separator": ",",
+        "newline": "\n",
+        "quoteFields": true,
+        "excludeColumns": "",
+        "excludeRows": "",
+        "trimContent": true,
+        "filename": "Ward_Vaccine_Distribution.csv",
+        "appendTo": "#output"
+    }
+
+    $('#myTable').table2csv('download', options)
+}
+
+document.getElementById('download_btn').addEventListener('click',
+  exportCSV);
