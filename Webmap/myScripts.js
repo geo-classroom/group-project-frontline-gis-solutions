@@ -192,7 +192,7 @@ pane: 'hs'
 //second Healthsites Icon (house)
 var househealthsiteIcon = L.icon({
 iconUrl: 'https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/healthsite.png',
-iconSize: 22,
+iconSize: 26,
 pane: 'hs'
 });
 //Healthsites Layer
@@ -227,7 +227,7 @@ success : function (response) {
             popupOptions = {maxWidth: 200};
             layer.bindPopup("<b>" + feature.properties.health_f_1
             + "</b>",popupOptions);
-            layer.on('mouseover', function(e){
+            layer.on('click', function(e){
                 this.openPopup();
             });
             layer.on('mouseout', function (e) {
