@@ -13,6 +13,7 @@
     <script src="../Webmap/L.Control.Layers.Tree.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="table2csv.js"></script>
 </head>
 
 <body style="background-image: url('https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/background.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%;">
@@ -20,7 +21,7 @@
         <tr>
             <td style="width:300px"><a href="https://frontlinegissol.wixsite.com/home"><img src="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/FrontlineGIS_Logo.png" width="auto" height="100" href="https://www.qries.com/"></a></td>
             <td style="background-color:#195E83; width:100%;">
-                <h1 style="color:#FFA500; align:center; font-size:30px;"><b>Mapping Mamelodi Healthsites to Optimize Covid-19 Vaccine Distribution<b></h1>
+                <h1 style="color:#FFA500; align:center; text-size:30px;"><b>Mapping Mamelodi Healthsites to Optimize Covid-19 Vaccine Distribution<b></h1>
             </td>
         </tr>
     </table>
@@ -30,9 +31,9 @@
     <div class="left" id="map" style="width: 50%; height: 600px; border-style: ridge; border-width: 3px; border-radius: 8px; ; border-color: #006994;"></div> <!--border colour is sea blue-->
       <div class="right">
       <div class="box" style="height:150px; border-style: ridge; border-width: 3px; border-radius: 8px; border-color: #006994;"> <!-- the blue box with input and submit button -->
-      <h2 style="color:#FBBF4D;">Clinic Calculation Tool</h2>
+      <h2 style="color:#FFA500;">Clinic Calculation Tool</h2>
       <div id="calculator_form">
-        <form name="calculator" action="" >
+        <form name="calculator" action="" style="padding:5px;">
             <label style="color:white;">Number of Vaccinations Available:</label> 
             <input id="vaccInput" type="number" name="vaccinations_available" />
             <?php
@@ -46,6 +47,7 @@
               else {echo '<p ><img id="connected" src="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/green-connect.png" style="height:20px; width:20px;">';}
             ?>
             <input type="submit" id="submit_btn" value="Calculate" class="myButton"/>
+            <input type="button" id="download_btn" value="Download Table as CSV" class="myButton" style="float:right;"/>
         </form>
       </div>
       <?php
