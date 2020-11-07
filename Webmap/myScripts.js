@@ -39,7 +39,7 @@ function highlightFeature(e){
 	layer.setStyle(
 		{
 		weight: 2,
-		color: 'yellow',
+		color: '#6a0dad',
 		fillColor: 'yellow',
 		fillOpacity: 0.25
 		}
@@ -138,8 +138,8 @@ function highlightPOI(e){
 	layer.setStyle(
 		{
 		weight: 2,
-		color: '#00FFFF',
-		fillColor: 'red',
+		color: 'red',
+		fillColor: '#ffff00',
 		fillOpacity: 0.25
 		}
 	);
