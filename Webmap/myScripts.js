@@ -234,9 +234,6 @@ success : function (response) {
             layer.on('click', function(e){
                 this.openPopup();
             });
-            layer.on('mouseout', function (e) {
-                this.closePopup();
-            });
         }
     }).addTo(map);
     LC.addOverlay(healthsitesWFS, "Healthsites");
