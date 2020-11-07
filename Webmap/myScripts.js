@@ -183,13 +183,18 @@ LC.addOverlay(poi_polygonWFS, "Places of Interest");
 }
 });
 
-//Healthsites Icon
+//Healthsites Icon (syringe)
 var healthsiteIcon = L.icon({
 iconUrl: 'https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/syringe.png',
 iconSize: 22,
 pane: 'hs'
 });
-
+//second Healthsites Icon (house)
+var househealthsiteIcon = L.icon({
+iconUrl: 'https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/healthsite.png',
+iconSize: 22,
+pane: 'hs'
+});
 //Healthsites Layer
 var defaultParameters = {
 service : 'WFS',
@@ -212,7 +217,11 @@ success : function (response) {
     healthsitesWFS = L.geoJson(response, {
         
         pointToLayer: function (feature, latlng) {
-            return L.marker(latlng, {icon: healthsiteIcon, pane:'hs'});
+            return L.marker(latlng, {icon: healthsiteIcon, pane:'hs'}).on('mouseover',function(e) {
+				e.target.setIcon(househealthsiteIcon);
+			}).on('mouseout',function(e) {
+				e.target.setIcon(healthsiteIcon);
+			});
         },
         onEachFeature: function (feature, layer) {
             popupOptions = {maxWidth: 200};
