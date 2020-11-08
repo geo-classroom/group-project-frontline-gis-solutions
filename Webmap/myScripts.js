@@ -72,11 +72,60 @@ function resetcatchHighlight(lyr){
 function resetHighlight(e){
 		wardsWFS.resetStyle(e.target);
     }
-//zoom to the layer when it is clicked
+//zoom to the layer (specifically to a ward) when it is clicked
 function zoomToFeature(e){
 		map.fitBounds(e.target.getBounds());
     }
 
+	//zoom to catchment on table click
+	function mamhospharm(){
+		map.setView([-25.71325,28.37463],15);
+    }
+	function mamwestc(){
+		map.setView([-25.71423,28.34883],15);
+    }
+	function AMEp(){
+		map.setView([-25.70892,28.35752],15);
+    }
+	function Stanza1b(){
+		map.setView([-25.70596,28.39407],15);
+    }
+	function S2(){
+		map.setView([-25.71443,28.41557],15);
+    }
+	function phah_c(){
+		map.setView([-25.722,28.38664],15);
+    }
+	function hospital(){
+		map.setView([-25.7042,28.41438],15);
+    }
+	function mkp(){
+		map.setView([-25.72179,28.38993],15);
+    }
+	function tshp(){
+		map.setView([-25.70896,28.38318],15);
+    }
+	function mec(){
+		map.setView([-25.72257,28.41587],15);
+    }
+	function lusc(){
+		map.setView([-25.72247,28.43754],15);
+    }
+	function holc(){
+		map.setView([-25.70401,28.37548],15);
+    }
+	function dpmm(){
+		map.setView([-25.70657,28.42283],15);
+    }
+	function khutp(){
+		map.setView([-25.71454,28.3747],15);
+    }
+	function mvp(){
+		map.setView([-25.70095,28.42238],15);
+    }
+	function mamelodihospital(){
+		map.setView([-25.72021,28.3691],15);
+    }
 //make variable for popup style: WARDS
 var popup = L.popup({className: "custom-popup"});
 
