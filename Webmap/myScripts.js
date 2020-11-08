@@ -308,10 +308,22 @@ success : function (response) {
 				e.target.setIcon(healthsiteIcon);
 			});
         },
-        onEachFeature: function (feature, layer) {
-            popupOptions = {maxWidth: 200};
-            layer.bindPopup("<b>" + feature.properties.health_f_1
-            + "</b>",popupOptions);
+	onEachFeature: function (feature, layer) {
+           if(feature.properties.health_f_1 == 'Mamelodi Hospital Pharmacy' || feature.properties.health_f_1 == 'AME Pharmacy' || feature.properties.health_f_1 == 'Maruke Pharmacy Mamelodi Gardens' || feature.properties.health_f_1 == 'Tshepong Pharmacy' || feature.properties.health_f_1 == 'Khutsong Pharmacy' || feature.properties.health_f_1 == 'Mahube Valley Pharmacy' || feature.properties.health_f_1 == 'Dis-Chem Mams Mall'){
+			popupOptions = {maxWidth: 200, className: "phs-popup"};
+				layer.bindPopup("<b>" + feature.properties.health_f_1
+				+ "</b>",popupOptions);
+			}
+			if(feature.properties.health_f_1 == 'Mamelodi West Clinic' || feature.properties.health_f_1 == 'Stanza Bopape Chc' || feature.properties.health_f_1 == 'Stanza 2 Clinic' || feature.properties.health_f_1 == 'Phahameng Clinic' || feature.properties.health_f_1 == 'Mamelodi East Clinic' || feature.properties.health_f_1 == 'Lusaka Clinic' || feature.properties.health_f_1 == 'Holani Clinic'){
+			popupOptions = {maxWidth: 200, className: "chs-popup"};
+				layer.bindPopup("<b>" + feature.properties.health_f_1
+				+ "</b>",popupOptions);
+			}
+			if(feature.properties.health_f_1 == 'Hospital' || feature.properties.health_f_1 == 'Mamelodi Hospital'){
+			popupOptions = {maxWidth: 200, className: "hhs-popup"};
+				layer.bindPopup("<b>" + feature.properties.health_f_1
+				+ "</b>",popupOptions);
+			}
             layer.on('click', function(e){
                 this.openPopup();
             });
