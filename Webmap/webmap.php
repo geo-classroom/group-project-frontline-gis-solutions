@@ -104,97 +104,97 @@
               </tr>
             </thead>
             <tbody>
-            <tr onmouseover="highlightcatchFeature(CL8)" onmouseout="resetcatchHighlight(CL8)">
+            <tr onmouseover="highlightcatchFeature(CL8)" onmouseout="resetcatchHighlight(CL8)" onclick="mamhospharm()">
                 <td class="tg-0lax">Mamelodi Hospital Pharmacy </td>
                 <td class="tg-0lax">409.90</td>
                 <td class="tg-0lax">33 736</td>
                 <td class="tg-0lax" id="CL8">---</td>
               </tr>
-              <tr onmouseover="highlightcatchFeature(CL11)" onmouseout="resetcatchHighlight(CL11)">
+              <tr onmouseover="highlightcatchFeature(CL11)" onmouseout="resetcatchHighlight(CL11)" onclick="mamwestc()">
                 <td class="tg-0lax">Mamelodi West Clinic</td>
                 <td class="tg-0lax">372.88</td>
                 <td class="tg-0lax">32 099</td>
                 <td class="tg-0lax" id="CL11">---</td>
               </tr>
-              <tr onmouseover="highlightcatchFeature(CL10)" onmouseout="resetcatchHighlight(CL10)">
+              <tr onmouseover="highlightcatchFeature(CL10)" onmouseout="resetcatchHighlight(CL10)" onclick="AMEp()">
                 <td class="tg-0lax">AME Pharmacy</td>
                 <td class="tg-0lax">355.06</td>
                 <td class="tg-0lax">31 923</td>
                 <td class="tg-0lax" id="CL10">---</td>
               </tr>
-              <tr onmouseover="highlightcatchFeature(CL4)" onmouseout="resetcatchHighlight(CL4)">
+              <tr onmouseover="highlightcatchFeature(CL4)" onmouseout="resetcatchHighlight(CL4)" onclick="Stanza1b()">
                 <td class="tg-0lax">Stanza Bopape</td>
                 <td class="tg-0lax">334.81</td>
                 <td class="tg-0lax">31 791</td>
                 <td class="tg-0lax" id="CL4">---</td>
               </tr>
-              <tr onmouseover="highlightcatchFeature(CL5)" onmouseout="resetcatchHighlight(CL5)">
+              <tr onmouseover="highlightcatchFeature(CL5)" onmouseout="resetcatchHighlight(CL5)" onclick="S2()">
                 <td class="tg-0lax">Stanza 2 Clinic </td>
                 <td class="tg-0lax">240.40</td>
                 <td class="tg-0lax">29 878</td>
                 <td class="tg-0lax" id="CL5">---</td>
               </tr>
-              <tr onmouseover="highlightcatchFeature(CL13)" onmouseout="resetcatchHighlight(CL13)">
+              <tr onmouseover="highlightcatchFeature(CL13)" onmouseout="resetcatchHighlight(CL13)" onclick="phah_c()">
                 <td class="tg-0lax">Phahameng Clinic</td>
                 <td class="tg-0lax">312.09</td>
                 <td class="tg-0lax">27 802</td>
                 <td class="tg-0lax" id="CL13">---</td>
               </tr>
-              <tr onmouseover="highlightcatchFeature(CL2)" onmouseout="resetcatchHighlight(CL2)">
+              <tr onmouseover="highlightcatchFeature(CL2)" onmouseout="resetcatchHighlight(CL2)" onclick="hospital()">
                 <td class="tg-0lax">Hospital</td>
                 <td class="tg-0lax">266.39</td>
                 <td class="tg-0lax">24 660</td>
                 <td class="tg-0lax" id="CL2">---</td>
               </tr>
-              <tr onmouseover="highlightcatchFeature(CL14)" onmouseout="resetcatchHighlight(CL14)">
+              <tr onmouseover="highlightcatchFeature(CL14)" onmouseout="resetcatchHighlight(CL14)" onclick="mkp()">
                 <td class="tg-0lax">Maruke Pharmacy</td>
                 <td class="tg-0lax">261.06</td>
                 <td class="tg-0lax">24 011</td>
                 <td class="tg-0lax" id="CL14">---</td>
               </tr>
-              <tr onmouseover="highlightcatchFeature(CL6)" onmouseout="resetcatchHighlight(CL6)">
+              <tr onmouseover="highlightcatchFeature(CL6)" onmouseout="resetcatchHighlight(CL6)" onclick="tshp()">
                 <td class="tg-0lax">Tshepong Pharmacy</td>
                 <td class="tg-0lax">248.53</td>
                 <td class="tg-0lax">23 811</td>
                 <td class="tg-0lax" id="CL6">---</td>
               </tr>
-              <tr onmouseover="highlightcatchFeature(CL15)" onmouseout="resetcatchHighlight(CL15)">
+              <tr onmouseover="highlightcatchFeature(CL15)" onmouseout="resetcatchHighlight(CL15)" onclick="mec()">
                 <td class="tg-0lax">Mamelodi East Clinic</td>
                 <td class="tg-0lax">188.80</td>
                 <td class="tg-0lax">22 661</td>
                 <td class="tg-0lax" id="CL15">---</td>
               </tr>
-              <tr onmouseover="highlightcatchFeature(CL16)" onmouseout="resetcatchHighlight(CL16)">
+              <tr onmouseover="highlightcatchFeature(CL16)" onmouseout="resetcatchHighlight(CL16)" onclick="lusc()">
                 <td class="tg-0lax">Lusaka Clinic</td>
                 <td class="tg-0lax">184.06</td>
                 <td class="tg-0lax">20 334</td>
                 <td class="tg-0lax" id="CL16">---</td>
               </tr>
-              <tr onmouseover="highlightcatchFeature(CL7)" onmouseout="resetcatchHighlight(CL7)">
+              <tr onmouseover="highlightcatchFeature(CL7)" onmouseout="resetcatchHighlight(CL7)" onclick="holc()">
                 <td class="tg-0lax">Holani Clinic</td>
                 <td class="tg-0lax">256.33</td>
                 <td class="tg-0lax">20 092</td>
                 <td class="tg-0lax" id="CL7">---</td>
               </tr>
-              <tr onmouseover="highlightcatchFeature(CL3)" onmouseout="resetcatchHighlight(CL3)">
+              <tr onmouseover="highlightcatchFeature(CL3)" onmouseout="resetcatchHighlight(CL3)" onclick="dpmm()">
                 <td class="tg-0lax">Dischem Pharmacy Mamelodi Mall</td>
                 <td class="tg-0lax">186.37</td>
                 <td class="tg-0lax">13 365</td>
                 <td class="tg-0lax" id="CL3">---</td>
               </tr>
-              <tr onmouseover="highlightcatchFeature(CL9)" onmouseout="resetcatchHighlight(CL9)">
+              <tr onmouseover="highlightcatchFeature(CL9)" onmouseout="resetcatchHighlight(CL9)" onclick="khutp()">
                 <td class="tg-0lax">Khutsong Pharmacy</td>
                 <td class="tg-0lax">201.63</td>
                 <td class="tg-0lax">12 259</td>
                 <td class="tg-0lax" id="CL9">---</td>
               </tr>
-              <tr onmouseover="highlightcatchFeature(CL1)" onmouseout="resetcatchHighlight(CL1)">
+              <tr onmouseover="highlightcatchFeature(CL1)" onmouseout="resetcatchHighlight(CL1)" onclick="mvp()">
                 <td class="tg-0lax" >Mahube Valley Pharmacy</td>
                 <td class="tg-0lax">173.48</td>
                 <td class="tg-0lax">10 452</td>
                 <td class="tg-0lax" id="CL1">---</td>
               </tr>
-              <tr onmouseover="highlightcatchFeature(CL12)" onmouseout="resetcatchHighlight(CL12)">
+              <tr onmouseover="highlightcatchFeature(CL12)" onmouseout="resetcatchHighlight(CL12)" onclick="mamelodihospital()">
                 <td class="tg-0lax">Mamelodi Hospital </td>
                 <td class="tg-0lax">184.31</td>
                 <td class="tg-0lax">8 147</td>
