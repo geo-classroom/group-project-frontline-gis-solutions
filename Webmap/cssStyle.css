@@ -82,3 +82,60 @@ div.input-box input {
 	margin: 2px 7px;
     line-height: 1.395;
 }
+/*pharmacy HS popup style*/
+.phs-popup .leaflet-popup-content-wrapper {
+	border-radius: 12px;
+	background:#710193;
+	color: white;
+	font-size:15px;
+	box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+}
+.phs-popup .leaflet-popup-tip{
+	background: #a32cc4;
+	box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+}
+.phs-popup .leaflet-popup-close-button{
+	display: none;
+}
+.phs-popup .leaflet-popup-content{
+	margin: 2px 7px;
+    line-height: 1.395;
+}
+/*Hospital HS popup style*/
+.hhs-popup .leaflet-popup-content-wrapper {
+	border-radius: 12px;
+	background:#b01919;
+	color: white;
+	font-size:15px;
+	box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+}
+.hhs-popup .leaflet-popup-tip{
+	background: red;
+	box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+}
+.hhs-popup .leaflet-popup-close-button{
+	display: none;
+}
+.hhs-popup .leaflet-popup-content{
+	margin: 2px 7px;
+    line-height: 1.395;
+}
+/*clinic HS popup style*/
+.chs-popup .leaflet-popup-content-wrapper {
+	border-radius: 12px;
+	background:#d6d602;
+	color: white;
+	font-size:15px;
+	box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+}
+.chs-popup .leaflet-popup-tip{
+	background: yellow;
+	box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+}
+.chs-popup .leaflet-popup-close-button{
+	display: none;
+}
+.chs-popup .leaflet-popup-content{
+	margin: 2px 7px;
+    line-height: 1.395;
+}
