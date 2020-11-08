@@ -195,7 +195,7 @@ pane: 'hs'
 });
 //second Healthsites Icon (house)
 var househealthsiteIcon = L.icon({
-iconUrl: 'https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/healthsite.png',
+iconUrl: 'https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/black_syringe.png',
 iconSize: 26,
 pane: 'hs'
 });
