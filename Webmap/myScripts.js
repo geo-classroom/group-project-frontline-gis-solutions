@@ -1,5 +1,5 @@
 //Initialize Map  
-var map = L.map('map').setView([-25.709286, 28.390506], 13.4);
+var map = L.map('map').setView([-25.71950, 28.384590], 13.4);
 
 //Define Basemaps
 var mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
@@ -194,6 +194,7 @@ wardsWFS = L.geoJson(response, {
     }
 }).addTo(map);
 LC.addOverlay(wardsWFS, '<p style="background-color:#99999C; color:#99999C; display: inline; outline-width:1px; outline-color:black; outline-style:solid;"><b>__</b></p><p style="display:inline;"> Wards</p>');
+map.fitBounds(wardsWFS.getBounds(),{padding:[20,20]});
 }
 });
 
