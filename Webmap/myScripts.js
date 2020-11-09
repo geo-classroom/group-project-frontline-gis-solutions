@@ -193,7 +193,7 @@ wardsWFS = L.geoJson(response, {
 	);
     }
 }).addTo(map);
-LC.addOverlay(wardsWFS, "Wards");
+LC.addOverlay(wardsWFS, '<p style="background-color:#99999C; color:#99999C; display: inline; outline-width:1px; outline-color:black; outline-style:solid;"><b>__</b></p><p style="display:inline;"> Wards</p>');
 }
 });
 
@@ -264,7 +264,7 @@ poi_polygonWFS = L.geoJson(response, {
    		 });
     }
 }).addTo(map);
-LC.addOverlay(poi_polygonWFS, '<p style="background-color:#ffb221; color:#ffb221; display: inline;"><b>__</b></p><p style="display:inline;"> Points of Interest</p>');
+LC.addOverlay(poi_polygonWFS, '<p style="background-color:#ffb221; color:#ffb221; display: inline; outline-width:1px; outline-color:black; outline-style:solid;"><b>__</b></p><p style="display:inline;"> Points of Interest</p>');
 }
 });
 
@@ -329,7 +329,7 @@ success : function (response) {
             });
         }
     }).addTo(map);
-    LC.addOverlay(healthsitesWFS, "Healthsites");
+    LC.addOverlay(healthsitesWFS, '<img src="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/syringe.png" style="height:15px; width:15px;">');
 }
 });
 
@@ -465,11 +465,12 @@ map.getPane('hs').style.pointerEvents = 'none';
 
 //Create tree layer control
 var overlaysTree = {   
-label: '<b>Catchment Areas</b>',
+label: '<p style="background-color:#820b29; opacity:0.7; color:#820b29; display: inline; outline-width:1px; outline-color:black; outline-style:solid;"><b>__</b></p><p style="display:inline;"><b> Catchment Areas</b></p>',
 selectAllCheckbox: 'Un/select all',
+collapsed: true,
 children: [
     {
-        label: '<p style="background-color:#d6d602; color:#d6d602; display: inline;"><b>__</b></p><p style="display:inline;"> Clinics</p>',
+        label: 'Clinics',
         collapsed: true,
         selectAllCheckbox: true,
         children: [
@@ -483,7 +484,7 @@ children: [
         ]
     }, 
     {
-        label: '<p style="background-color:#b01919; color:#b01919; display: inline;"><b>__</b></p><p style="display:inline;"> Hospitals</p>',
+        label: 'Hospitals',
         collapsed: true,
         selectAllCheckbox: true,
         children: [
@@ -492,7 +493,7 @@ children: [
         ]
     }, 
     {
-        label: '<p style="background-color:#710193; color:#710193; display: inline;"><b>__</b></p><p style="display:inline;"> Pharmacies</p>',
+        label: 'Pharmacies',
         collapsed: true,
         selectAllCheckbox: true,
         children: [
