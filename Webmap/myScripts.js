@@ -264,7 +264,7 @@ poi_polygonWFS = L.geoJson(response, {
    		 });
     }
 }).addTo(map);
-LC.addOverlay(poi_polygonWFS, '<p style="background-color:#ffb221; color:#ffb221; display: inline; outline-width:1px; outline-color:black; outline-style:solid;"><b>__</b></p><p style="display:inline;"> Points of Interest</p>');
+LC.addOverlay(poi_polygonWFS, '<p style="background-color:#ffb221; color:#ffb221; display: inline; outline-width:1px; outline-color:black; outline-style:solid;"><b>__</b></p><p style="display:inline;"> Point of Interest</p>');
 }
 });
 
@@ -329,7 +329,7 @@ success : function (response) {
             });
         }
     }).addTo(map);
-    LC.addOverlay(healthsitesWFS, '<img src="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/syringe.png" style="height:15px; width:15px;">');
+    LC.addOverlay(healthsitesWFS, '<img src="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/syringe.png" style="height:16px; width:16px;"><p style="display:inline;"> Healthsite</p>');
 }
 });
 
