@@ -123,7 +123,7 @@
                 <td class="tg-0lax" id="CL10">---</td>
               </tr>
               <tr onmouseover="highlightcatchFeature(CL4)" onmouseout="resetcatchHighlight(CL4)" onclick="Stanza1b()">
-                <td class="tg-0lax">Stanza Bopape</td>
+                <td class="tg-0lax">Stanza Bopape Chc</td>
                 <td class="tg-0lax">334.81</td>
                 <td class="tg-0lax">31 791</td>
                 <td class="tg-0lax" id="CL4">---</td>
@@ -147,7 +147,7 @@
                 <td class="tg-0lax" id="CL2">---</td>
               </tr>
               <tr onmouseover="highlightcatchFeature(CL14)" onmouseout="resetcatchHighlight(CL14)" onclick="mkp()">
-                <td class="tg-0lax">Maruke Pharmacy</td>
+                <td class="tg-0lax">Maruke Pharmacy Mamelodi Gardens</td>
                 <td class="tg-0lax">261.06</td>
                 <td class="tg-0lax">24 011</td>
                 <td class="tg-0lax" id="CL14">---</td>
@@ -177,7 +177,7 @@
                 <td class="tg-0lax" id="CL7">---</td>
               </tr>
               <tr onmouseover="highlightcatchFeature(CL3)" onmouseout="resetcatchHighlight(CL3)" onclick="dpmm()">
-                <td class="tg-0lax">Dischem Pharmacy Mamelodi Mall</td>
+                <td class="tg-0lax">Dis-Chem Pharmacy Mams Mall</td>
                 <td class="tg-0lax">186.37</td>
                 <td class="tg-0lax">13 365</td>
                 <td class="tg-0lax" id="CL3">---</td>
