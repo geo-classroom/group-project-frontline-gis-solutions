@@ -194,6 +194,7 @@ wardsWFS = L.geoJson(response, {
     }
 }).addTo(map);
 LC.addOverlay(wardsWFS, '<p style="background-color:#99999C; color:#99999C; display: inline; outline-width:1px; outline-color:black; outline-style:solid;"><b>__</b></p><p style="display:inline;"> Wards</p>');
+map.fitBounds(wardsWFS.getBounds(),{padding:[20,20]});
 }
 });
 
