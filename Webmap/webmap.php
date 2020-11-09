@@ -177,7 +177,7 @@
                 <td class="tg-0lax" id="CL7">---</td>
               </tr>
               <tr onmouseover="highlightcatchFeature(CL3)" onmouseout="resetcatchHighlight(CL3)" onclick="dpmm()">
-                <td class="tg-0lax">Dis-Chem Pharmacy Mams Mall</td>
+                <td class="tg-0lax">Dis-Chem Mams Mall</td>
                 <td class="tg-0lax">186.37</td>
                 <td class="tg-0lax">13 365</td>
                 <td class="tg-0lax" id="CL3">---</td>
