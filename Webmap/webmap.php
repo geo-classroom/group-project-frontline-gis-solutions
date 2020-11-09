@@ -111,7 +111,7 @@
                 <td class="tg-0lax" id="CL8">---</td>
               </tr>
               <tr onmouseover="highlightcatchFeature(CL11)" onmouseout="resetcatchHighlight(CL11)" onclick="mamwestc()">
-                <td class="tg-0lax">Mamelodi West Clinic</td>
+                <td class="tg-0lax" style="color:#d6d602;"><b>Mamelodi West Clinic</b></td>
                 <td class="tg-0lax">372.88</td>
                 <td class="tg-0lax">32 099</td>
                 <td class="tg-0lax" id="CL11">---</td>
