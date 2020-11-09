@@ -329,7 +329,7 @@ success : function (response) {
             });
         }
     }).addTo(map);
-    LC.addOverlay(healthsitesWFS, "Healthsites");
+    LCT.addOverlay(healthsitesWFS, "Healthsites");
 }
 });
 
@@ -464,50 +464,74 @@ map.getPane('hs').style.zIndex = 654;
 map.getPane('hs').style.pointerEvents = 'none';
 
 //Create tree layer control
-var overlaysTree = {   
-label: '<b>Catchment Areas</b>',
-selectAllCheckbox: 'Un/select all',
-children: [
-    {
-        label: '<p style="color:#d6d602; display: inline;"><b>Clinics</b></p>',
-        collapsed: true,
-        selectAllCheckbox: true,
-        children: [
-            {label: 'Stanza Bopape', layer: CL4},
-            {label: 'Stanza 2', layer: CL5},
-            {label: 'Holani', layer: CL7},
-            {label: 'Mamelodi West', layer: CL11},
-            {label: 'Phahameng', layer: CL13},
-            {label: 'Mamelodi East', layer: CL15},
-            {label: 'Lusaka', layer: CL16}
-        ]
-    }, 
-    {
-        label: '<p style="color:#b01919; display: inline;"><b>Hospitals</b></p>',
-        collapsed: true,
-        selectAllCheckbox: true,
-        children: [
-            {label: 'Hospital', layer: CL2},
-            {label: 'Mamelodi', layer: CL12}
-        ]
-    }, 
-    {
-        label: '<p style="color:#710193; display: inline;"><b>Pharmacies</b></p>',
-        collapsed: true,
-        selectAllCheckbox: true,
-        children: [
-            {label: 'Mahube Valley', layer: CL1},
-            {label: 'Dis-Chem Mams Mall', layer: CL3},
-            {label: 'Tshepong', layer: CL6},
-            {label: 'Mamelodi Hospital', layer: CL8},
-            {label: 'Khutsong', layer: CL9},
-            {label: 'AME', layer: CL10},
-            {label: 'Maruke Gardens', layer: CL14}
-        ]
-    }
-]
+var baseTree = {
+    label: 'Base Layers',
+    children: [
+        {
+            label: 'OpenStreetMap', layer:OSM,
+        },
+        {
+            label: 'Google Satellite', layer:GOOGLESAT,
+        },
+        {
+            label: 'Frontline GIS', layer:CUSTOM,
+        },
+    ]
+   };
+
+var overlaysTree = {
+    label: 'Overlay Layers',
+    children: [   
+        {
+            label: 'Healthsites', layer: healthsitesWFS,
+        },
+        {
+            label: '<b>Catchment Areas</b>',
+            selectAllCheckbox: 'Un/select all',
+            children: [
+                {
+                    label: '<p style="color:#d6d602; display: inline;"><b>Clinics</b></p>',
+                    collapsed: true,
+                    selectAllCheckbox: true,
+                    children: [
+                        {label: 'Stanza Bopape', layer: CL4},
+                        {label: 'Stanza 2', layer: CL5},
+                        {label: 'Holani', layer: CL7},
+                        {label: 'Mamelodi West', layer: CL11},
+                        {label: 'Phahameng', layer: CL13},
+                        {label: 'Mamelodi East', layer: CL15},
+                        {label: 'Lusaka', layer: CL16}
+                    ]
+                }, 
+                {
+                    label: '<p style="color:#b01919; display: inline;"><b>Hospitals</b></p>',
+                    collapsed: true,
+                    selectAllCheckbox: true,
+                    children: [
+                        {label: 'Hospital', layer: CL2},
+                        {label: 'Mamelodi', layer: CL12}
+                    ]
+                }, 
+                {
+                    label: '<p style="color:#710193; display: inline;"><b>Pharmacies</b></p>',
+                    collapsed: true,
+                    selectAllCheckbox: true,
+                    children: [
+                        {label: 'Mahube Valley', layer: CL1},
+                        {label: 'Dis-Chem Mams Mall', layer: CL3},
+                        {label: 'Tshepong', layer: CL6},
+                        {label: 'Mamelodi Hospital', layer: CL8},
+                        {label: 'Khutsong', layer: CL9},
+                        {label: 'AME', layer: CL10},
+                        {label: 'Maruke Gardens', layer: CL14}
+                    ]
+                }
+            ]
+        }
+    ]
 }
-L.control.layers.tree(null, overlaysTree,{collapsed:false}).addTo(map);
+LCT = L.control.layers.tree(baseTree, overlaysTree,{collapsed:false})
+LCT.addTo(map);
 
 
 
