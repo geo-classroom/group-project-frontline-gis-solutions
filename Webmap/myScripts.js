@@ -329,7 +329,7 @@ success : function (response) {
             });
         }
     }).addTo(map);
-    LC.addOverlay(healthsitesWFS, '<img src="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/syringe.png" style="height:16px; width:16px;"><p style="display:inline;"> Healthsite</p>');
+    LC.addOverlay(healthsitesWFS, '<img src="https://geo-classroom.github.io/group-project-frontline-gis-solutions/Webmap_Images/syringe.png" style="height:13px; width:13px;"><p style="display:inline;"> Healthsite</p>');
 }
 });
 
