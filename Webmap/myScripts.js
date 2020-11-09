@@ -1,5 +1,5 @@
 //Initialize Map  
-var map = L.map('map').setView([-25.709286, 28.390506], 13.4);
+var map = L.map('map').setView([-25.71950, 28.384590], 13.4);
 
 //Define Basemaps
 var mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
