@@ -4,7 +4,7 @@
 }
 
 .leaflet-container .leaflet-control-mouseposition {
-  background-color: #d3d3d3;
+  background-color: #D3D3D3;
   box-shadow: 0 0 5px #bbb;
   padding: 0 5px;
   margin: 0;
@@ -138,4 +138,39 @@ div.input-box input {
 .chs-popup .leaflet-popup-content{
 	margin: 2px 7px;
     line-height: 1.395;
+}
+/* zoom buttons styling */
+.leaflet-bar a, .leaflet-bar a:hover {
+    background-color: #D3D3D3;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    text-decoration: blink;
+    color: #333;
+    box-shadow: 0 0 black;
+}
+.leaflet-control-zoom-in, .leaflet-control-zoom-out {
+    font: 14.4px 'Lucida Console', Monaco, monospace;
+    text-indent: 1px;
+}
+/* scale bar style*/
+.leaflet-control-scale-line {
+    border: 2px solid #777;
+    border-top: none;
+    line-height: 1.1;
+    padding: 2px 5px 1px;
+    font-size: 11px;
+    white-space: nowrap;
+    overflow: hidden;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: #fff;
+    background: #D3D3D3;
+}
+/* attribution style */
+.leaflet-container .leaflet-control-attribution {
+    background: #fff;
+    background: #D3D3D3;
+    margin: 0;
 }
