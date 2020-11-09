@@ -264,7 +264,7 @@ poi_polygonWFS = L.geoJson(response, {
    		 });
     }
 }).addTo(map);
-LC.addOverlay(poi_polygonWFS, "Places of Interest");
+LC.addOverlay(poi_polygonWFS, '<p style="background-color:#ffb221; color:#ffb221; display: inline;"><b>__</b></p><p style="display:inline;"> Points of Interest</p>');
 }
 });
 
@@ -469,7 +469,7 @@ label: '<b>Catchment Areas</b>',
 selectAllCheckbox: 'Un/select all',
 children: [
     {
-        label: '<p style="color:#d6d602; display: inline;"><b>Clinics</b></p>',
+        label: '<p style="background-color:#d6d602; color:#d6d602; display: inline;"><b>__</b></p><p style="display:inline;"> Clinics</p>',
         collapsed: true,
         selectAllCheckbox: true,
         children: [
@@ -483,7 +483,7 @@ children: [
         ]
     }, 
     {
-        label: '<p style="color:#b01919; display: inline;"><b>Hospitals</b></p>',
+        label: '<p style="background-color:#b01919; color:#b01919; display: inline;"><b>__</b></p><p style="display:inline;"> Hospitals</p>',
         collapsed: true,
         selectAllCheckbox: true,
         children: [
@@ -492,7 +492,7 @@ children: [
         ]
     }, 
     {
-        label: '<p style="color:#710193; display: inline;"><b>Pharmacies</b></p>',
+        label: '<p style="background-color:#710193; color:#710193; display: inline;"><b>__</b></p><p style="display:inline;"> Pharmacies</p>',
         collapsed: true,
         selectAllCheckbox: true,
         children: [
