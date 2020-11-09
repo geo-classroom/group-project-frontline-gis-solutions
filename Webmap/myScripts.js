@@ -464,12 +464,12 @@ map.getPane('hs').style.zIndex = 654;
 map.getPane('hs').style.pointerEvents = 'none';
 
 //Create tree layer control
-var overlaysTree = {
+var overlaysTree = {   
 label: '<b>Catchment Areas</b>',
 selectAllCheckbox: 'Un/select all',
 children: [
     {
-        label: '<b>Clinics</b>',
+        label: '<p style="color:#d6d602; display: inline;"><b>Clinics</b></p>',
         collapsed: true,
         selectAllCheckbox: true,
         children: [
@@ -483,7 +483,7 @@ children: [
         ]
     }, 
     {
-        label: '<b>Hospitals</b>',
+        label: '<p style="color:#b01919; display: inline;"><b>Hospitals</b></p>',
         collapsed: true,
         selectAllCheckbox: true,
         children: [
@@ -492,7 +492,7 @@ children: [
         ]
     }, 
     {
-        label: '<b>Pharmacies</b>',
+        label: '<p style="color:#710193; display: inline;"><b>Pharmacies</b></p>',
         collapsed: true,
         selectAllCheckbox: true,
         children: [
