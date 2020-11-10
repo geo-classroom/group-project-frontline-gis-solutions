@@ -175,3 +175,10 @@ div.input-box input {
     background: #D3D3D3;
     margin: 0;
 }
+/* layer control background colour */
+.leaflet-control-layers-expanded {
+    padding: 6px 10px 6px 6px;
+    color: #333;
+    background: #fff;
+    background-color: #d3d3d3;
+}
